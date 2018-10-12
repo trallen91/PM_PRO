@@ -1,0 +1,6 @@
+framework module Pods_PM_PRO_JTests {
+  umbrella header "Pods-PM_PRO_JTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
