@@ -16,6 +16,12 @@
 		F8C758BB217121CD00E590AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B9217121CD00E590AD /* LaunchScreen.storyboard */; };
 		F8C758C6217121CD00E590AD /* PM_PRO_JTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758C5217121CD00E590AD /* PM_PRO_JTests.swift */; };
 		F8C758D1217121CD00E590AD /* PM_PRO_JUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758D0217121CD00E590AD /* PM_PRO_JUITests.swift */; };
+		F8EEB24721712ED200612D84 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24621712ED200612D84 /* Store.swift */; };
+		F8EEB2492171303400612D84 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2482171303400612D84 /* LocationManager.swift */; };
+		F8EEB24D217188BB00612D84 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24A217188BB00612D84 /* SurveyTask.swift */; };
+		F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24B217188BB00612D84 /* ConsentDocument.swift */; };
+		F8EEB24F217188BB00612D84 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24C217188BB00612D84 /* ConsentTask.swift */; };
+		F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2502171892800612D84 /* GeofenceLocationsTask.swift */; };
 		FD52590CFEB559EDFBF0BA18 /* Pods_PM_PRO_JUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E845A54E973A81D37A8DC5CA /* Pods_PM_PRO_JUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +65,12 @@
 		F8C758CC217121CD00E590AD /* PM_PRO_JUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PM_PRO_JUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758D0217121CD00E590AD /* PM_PRO_JUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PM_PRO_JUITests.swift; sourceTree = "<group>"; };
 		F8C758D2217121CD00E590AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EEB24621712ED200612D84 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		F8EEB2482171303400612D84 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F8EEB24A217188BB00612D84 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		F8EEB24B217188BB00612D84 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
+		F8EEB24C217188BB00612D84 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
+		F8EEB2502171892800612D84 /* GeofenceLocationsTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceLocationsTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,12 +149,18 @@
 		F8C758AF217121CC00E590AD /* PM_PRO_J */ = {
 			isa = PBXGroup;
 			children = (
+				F8EEB24B217188BB00612D84 /* ConsentDocument.swift */,
+				F8EEB24C217188BB00612D84 /* ConsentTask.swift */,
+				F8EEB24A217188BB00612D84 /* SurveyTask.swift */,
+				F8EEB2482171303400612D84 /* LocationManager.swift */,
+				F8EEB24621712ED200612D84 /* Store.swift */,
 				F8C758B0217121CC00E590AD /* AppDelegate.swift */,
 				F8C758B2217121CC00E590AD /* ViewController.swift */,
 				F8C758B4217121CC00E590AD /* Main.storyboard */,
 				F8C758B7217121CD00E590AD /* Assets.xcassets */,
 				F8C758B9217121CD00E590AD /* LaunchScreen.storyboard */,
 				F8C758BC217121CD00E590AD /* Info.plist */,
+				F8EEB2502171892800612D84 /* GeofenceLocationsTask.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -413,6 +431,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EEB2492171303400612D84 /* LocationManager.swift in Sources */,
+				F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */,
+				F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */,
+				F8EEB24721712ED200612D84 /* Store.swift in Sources */,
+				F8EEB24F217188BB00612D84 /* ConsentTask.swift in Sources */,
+				F8EEB24D217188BB00612D84 /* SurveyTask.swift in Sources */,
 				F8C758B3217121CC00E590AD /* ViewController.swift in Sources */,
 				F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */,
 			);
