@@ -11,6 +11,7 @@ import UIKit
 class EligibilityCell: UITableViewCell {
 
     @IBOutlet weak var criterion: UILabel!
+    @IBOutlet weak var eligSwitch: UISwitch!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,7 +11,6 @@ import UIKit
 class InclusionExclusionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var criteria: [String] = []
-//    let cellReuseIdentifier = "EligibilityCell"
     let rightBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Continue", style: .plain, target: self, action: nil)
 //        barButtonItem.tintColor = UIColor.blue
@@ -30,6 +29,8 @@ class InclusionExclusionViewController: UIViewController {
 //        tableView.frame = CGRectMake(0, 50, 320, 200)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -78,7 +79,7 @@ extension InclusionExclusionViewController: UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "EligibilityCell") as! EligibilityCell
         
         cell.criterion.text = criterion
-//        print(cell.criterion.text)
+        print(cell.criterion.text)
         return cell
     }
 }

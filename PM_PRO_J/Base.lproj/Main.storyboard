@@ -96,28 +96,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0k-NV-vz0">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0k-NV-vz0">
                                                     <rect key="frame" x="15" y="0.0" width="280" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LN8-bg-qxY">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LN8-bg-qxY">
                                                     <rect key="frame" x="311" y="6" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </switch>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="w0k-NV-vz0" firstAttribute="bottom" secondItem="6xG-I6-sw3" secondAttribute="bottomMargin" id="5b0-4v-Ns4"/>
-                                                <constraint firstItem="LN8-bg-qxY" firstAttribute="leading" secondItem="w0k-NV-vz0" secondAttribute="trailing" constant="16" id="7TR-gT-kp8"/>
-                                                <constraint firstItem="w0k-NV-vz0" firstAttribute="leading" secondItem="6xG-I6-sw3" secondAttribute="leading" constant="15" id="Cfx-2Z-cfb"/>
-                                                <constraint firstAttribute="trailing" secondItem="w0k-NV-vz0" secondAttribute="trailing" constant="80" id="RUh-8c-Kcb"/>
-                                                <constraint firstItem="LN8-bg-qxY" firstAttribute="top" secondItem="6xG-I6-sw3" secondAttribute="topMargin" constant="-25" id="aSV-Yg-dyO"/>
-                                                <constraint firstItem="w0k-NV-vz0" firstAttribute="top" secondItem="6xG-I6-sw3" secondAttribute="top" id="mHK-JC-0oy"/>
-                                                <constraint firstItem="LN8-bg-qxY" firstAttribute="centerY" secondItem="6xG-I6-sw3" secondAttribute="centerY" id="ydO-l2-YOL"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="criterion" destination="w0k-NV-vz0" id="dsN-ZJ-gYu"/>
+                                            <outlet property="eligSwitch" destination="LN8-bg-qxY" id="dNc-ao-oAx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
