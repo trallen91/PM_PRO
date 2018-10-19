@@ -27,11 +27,11 @@ class ViewController: UIViewController {
     @IBAction func joinStudy(_ sender: UIButton) {
     }
     
-    @IBAction func consentTapped(_ sender: UIButton) {
-        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
-        taskViewController.delegate = self
-        present(taskViewController, animated: true, completion: nil)
-    }
+//    @IBAction func consentTapped(_ sender: UIButton) {
+//        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
+//        taskViewController.delegate = self
+//        present(taskViewController, animated: true, completion: nil)
+//    }
     @IBAction func surveyTapped(_ sender: UIButton) {
         let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
         taskViewController.delegate = self

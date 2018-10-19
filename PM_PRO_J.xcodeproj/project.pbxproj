@@ -24,6 +24,7 @@
 		F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2502171892800612D84 /* GeofenceLocationsTask.swift */; };
 		F8EEB257217800A500612D84 /* InclusionExclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB256217800A500612D84 /* InclusionExclusionViewController.swift */; };
 		F8EEB2592178123300612D84 /* EligibilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2582178123300612D84 /* EligibilityCell.swift */; };
+		F8EEB25B217A578000612D84 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB25A217A578000612D84 /* ConsentViewController.swift */; };
 		FD52590CFEB559EDFBF0BA18 /* Pods_PM_PRO_JUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E845A54E973A81D37A8DC5CA /* Pods_PM_PRO_JUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		F8EEB2502171892800612D84 /* GeofenceLocationsTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceLocationsTask.swift; sourceTree = "<group>"; };
 		F8EEB256217800A500612D84 /* InclusionExclusionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InclusionExclusionViewController.swift; sourceTree = "<group>"; };
 		F8EEB2582178123300612D84 /* EligibilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityCell.swift; sourceTree = "<group>"; };
+		F8EEB25A217A578000612D84 /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				F8EEB2502171892800612D84 /* GeofenceLocationsTask.swift */,
 				F8EEB256217800A500612D84 /* InclusionExclusionViewController.swift */,
 				F8EEB2582178123300612D84 /* EligibilityCell.swift */,
+				F8EEB25A217A578000612D84 /* ConsentViewController.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				F8EEB2492171303400612D84 /* LocationManager.swift in Sources */,
 				F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */,
 				F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */,
+				F8EEB25B217A578000612D84 /* ConsentViewController.swift in Sources */,
 				F8EEB24721712ED200612D84 /* Store.swift in Sources */,
 				F8EEB24F217188BB00612D84 /* ConsentTask.swift in Sources */,
 				F8EEB24D217188BB00612D84 /* SurveyTask.swift in Sources */,

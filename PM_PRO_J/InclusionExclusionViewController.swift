@@ -11,18 +11,19 @@ import UIKit
 class InclusionExclusionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var criteria: [String] = []
-    let rightBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Continue", style: .plain, target: self, action: nil)
-//        barButtonItem.tintColor = UIColor.blue
-        barButtonItem.isEnabled = false
-        return barButtonItem
-    }()
+    
+//    let rightBarButtonItem: UIBarButtonItem = {
+//        let barButtonItem = UIBarButtonItem(title: "Continue", style: .plain, target: self, action: nil)
+////        barButtonItem.tintColor = UIColor.blue
+//        barButtonItem.isEnabled = false
+//        return barButtonItem
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Eligibility"
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+//        self.navigationItem.rightBarButtonItem = rightBarButtonItem
         
         criteria = createCriteriaArray()
         
