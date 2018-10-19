@@ -11,7 +11,7 @@ import UIKit
 class InclusionExclusionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var criteria: [String] = []
-    let cellReuseIdentifier = "cell"
+//    let cellReuseIdentifier = "EligibilityCell"
     let rightBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Continue", style: .plain, target: self, action: nil)
 //        barButtonItem.tintColor = UIColor.blue
@@ -26,9 +26,11 @@ class InclusionExclusionViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
         
         criteria = createCriteriaArray()
+        
+//        tableView.frame = CGRectMake(0, 50, 320, 200)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     func createCriteriaArray() -> [String] {
@@ -64,16 +66,19 @@ class InclusionExclusionViewController: UIViewController {
 
 extension InclusionExclusionViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Table View func1 executed")
+        print(criteria.count)
         return criteria.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Table View func2 executed")
         let criterion = criteria[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "EligibilityCell") as! EligibilityCell
         
         cell.criterion.text = criterion
-        print(cell.criterion.text)
+//        print(cell.criterion.text)
         return cell
     }
 }
