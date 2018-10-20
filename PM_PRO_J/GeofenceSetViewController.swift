@@ -1,48 +1,42 @@
 //
-//  ViewController.swift
-//  PM_PRO_2
+//  GeofenceSetViewController.swift
+//  PM_PRO_J
 //
-//  Created by Travis Allen on 10/5/18.
+//  Created by Travis Allen on 10/20/18.
 //  Copyright © 2018 Travis Allen. All rights reserved.
 //
+
+import Foundation
 import ResearchKit
 import UIKit
 
-class ViewController: UIViewController {
-
-
+class GeofenceSetViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.title = "Enter Locations"
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func learnMore(_ sender: UIButton) {
-        
-    }
-    @IBAction func joinStudy(_ sender: UIButton) {
-    }
     
-//    @IBAction func consentTapped(_ sender: UIButton) {
-//        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
-//        taskViewController.delegate = self
-//        present(taskViewController, animated: true, completion: nil)
-//    }
-    @IBAction func surveyTapped(_ sender: UIButton) {
-        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
+    @IBAction func geoSetTapped(_ sender: UIButton) {
+        let taskViewController = ORKTaskViewController(task: GeofenceLocationsTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
     }
+    
 }
 
-extension ViewController : ORKTaskViewControllerDelegate {
+extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
-        print(reason)
+        //Handle results with taskViewController.result
+        taskViewController.dismiss(animated: true, completion: nil)
+
         let taskResult = taskViewController.result.results
         let myStore = Store()
         let myLocMgr = ANCLocationManager(store: myStore)
@@ -60,7 +54,7 @@ extension ViewController : ORKTaskViewControllerDelegate {
                 {
                     print("Home Address: ")
                     myLocMgr.home = loc.coordinate
-
+                    
                 }
                 if result.identifier == "workAddress"
                 {
@@ -70,19 +64,14 @@ extension ViewController : ORKTaskViewControllerDelegate {
                 if result.identifier == "hospitalAddress"
                 {
                     print("Hospital Address: ")
-//                    print(myLocMgr.work)
+                    //                    print(myLocMgr.work)
                 }
             }
         }
         
-    }
-    
-    
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        //Handle results with taskViewController.result
-        taskViewController.dismiss(animated: true, completion: nil)
+        if reason == .completed {
+            print("NICE!!")
+        }
     }
     
 }
-
-
