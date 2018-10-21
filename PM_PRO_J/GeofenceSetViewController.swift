@@ -70,8 +70,9 @@ extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
         }
         
         if reason == .completed {
-            print("NICE!!")
+            self.performSegue(withIdentifier: "firstSetTimeSegue", sender: nil)
         }
+        
     }
     
 }

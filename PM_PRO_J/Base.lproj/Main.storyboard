@@ -309,10 +309,41 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <segue destination="b93-qn-aTi" kind="show" identifier="firstSetTimeSegue" id="mbp-98-ofl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCE-NA-AKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4464" y="331"/>
+        </scene>
+        <!--Survey Times View Controller-->
+        <scene sceneID="0DV-ot-gyX">
+            <objects>
+                <viewController id="b93-qn-aTi" customClass="SurveyTimesViewController" customModule="PM_PRO_J" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="viV-YU-0hY"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Zv-Zu-HVr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="04e-Ds-zHU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7M8-2Z-gy6">
+                                <rect key="frame" x="93" y="318" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set Survey Reminder Times"/>
+                                <connections>
+                                    <action selector="setSurveyTapped:" destination="b93-qn-aTi" eventType="touchUpInside" id="DgU-CT-Pbf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGQ-0I-lV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5346" y="329"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vos-g6-rNT">

@@ -38,7 +38,7 @@ extension ConsentViewController : ORKTaskViewControllerDelegate {
         if reason == .completed {
             self.performSegue(withIdentifier: "consentCompleteSegue", sender: nil)
         }
-        taskViewController.dismiss(animated: true, completion: nil)        
+        taskViewController.dismiss(animated: true, completion: nil)
 //        taskViewController.shouldPerformSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
 //
 //
