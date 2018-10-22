@@ -35,7 +35,7 @@
                                 </state>
                                 <connections>
                                     <action selector="joinStudy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSE-UL-vUc"/>
-                                    <segue destination="PXd-9b-FH4" kind="show" id="hwU-dd-JlN"/>
+                                    <segue destination="9OM-aT-2K2" kind="show" id="qvZ-pK-bLb"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WeillCornellLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XLu-Dt-KiN">
@@ -133,9 +133,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="All of the Above Are True"/>
-                                <connections>
-                                    <segue destination="KcG-x0-ehY" kind="show" id="BIr-rR-h2z"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,7 +149,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEJ-bn-ktp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047.2" y="328.78560719640183"/>
+            <point key="canvasLocation" x="1383" y="1177"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wjO-56-OaO">
+            <objects>
+                <viewController id="RJw-vj-QI6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ad0-8I-i0c"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lco-gb-ooJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CKS-Ag-dYo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxQ-Bn-a5A">
+                                <rect key="frame" x="16" y="244" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are not eligible to join the study." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpw-QF-ifi">
+                                <rect key="frame" x="30" y="264" width="314" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PUS-Vb-hrS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2848.8000000000002" y="1111.3943028485758"/>
+        </scene>
+        <!--Eligibility View Controller-->
+        <scene sceneID="3QL-YO-WmV">
+            <objects>
+                <viewController id="9OM-aT-2K2" customClass="EligibilityViewController" customModule="PM_PRO_J" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bsq-sF-t7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="b7U-PR-MbO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vub-x9-eEw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First, let's determine your eligibility" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW3-0g-4Pu">
+                                <rect key="frame" x="17" y="191" width="341" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VdL-yD-BCA">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">To be eligible for this study, the answer to all of the "Inclusion Criteria" must be "Yes".  Click the button below to see all of the criteria.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-hy-S59">
+                                <rect key="frame" x="67" y="557" width="240" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Check Eligibility">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkEligTapped:" destination="9OM-aT-2K2" eventType="touchUpInside" id="ZZa-dc-aJs"/>
+                                    <action selector="consentTapped:" destination="KcG-x0-ehY" eventType="touchUpInside" id="ujl-Ko-eXe"/>
+                                    <action selector="joinStudy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XNr-vp-Jil"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <segue destination="KcG-x0-ehY" kind="show" identifier="isEligibleSegue" id="tYR-Jv-Bdz"/>
+                        <segue destination="RJw-vj-QI6" kind="show" identifier="isIneligibleSegue" id="dzF-Ou-XGs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0V-oS-aTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873" y="329"/>
         </scene>
         <!--Consent View Controller-->
         <scene sceneID="tMW-Nt-sID">
