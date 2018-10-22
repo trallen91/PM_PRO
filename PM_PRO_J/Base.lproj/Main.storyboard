@@ -317,6 +317,73 @@
             </objects>
             <point key="canvasLocation" x="4464" y="331"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="pLL-15-jgK">
+            <objects>
+                <viewController id="a51-RY-YSj" customClass="HomeViewController" customModule="PM_PRO_J" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sdl-K5-BDY"/>
+                        <viewControllerLayoutGuide type="bottom" id="s6E-ou-4Kp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nyZ-fV-bnu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p73-as-adY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SurveyCell" id="EAD-3N-Y0z" customClass="SurveyCell" customModule="PM_PRO_J" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EAD-3N-Y0z" id="s3j-3p-ivb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kua-mc-GZi">
+                                                    <rect key="frame" x="15" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAo-NO-aII">
+                                                    <rect key="frame" x="312" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kua-mc-GZi" firstAttribute="centerY" secondItem="s3j-3p-ivb" secondAttribute="centerY" id="4uy-DP-yu9"/>
+                                                <constraint firstItem="kua-mc-GZi" firstAttribute="leading" secondItem="s3j-3p-ivb" secondAttribute="leadingMargin" constant="-1" id="6ct-pS-6Dd"/>
+                                                <constraint firstItem="kua-mc-GZi" firstAttribute="bottom" secondItem="s3j-3p-ivb" secondAttribute="bottomMargin" id="HzY-YB-iEw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="surveyDate" destination="lAo-NO-aII" id="iSl-FD-rFY"/>
+                                            <outlet property="surveyName" destination="kua-mc-GZi" id="3dS-mv-Jnc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p73-as-adY" firstAttribute="leading" secondItem="nyZ-fV-bnu" secondAttribute="leading" id="1cy-LD-IjW"/>
+                            <constraint firstItem="p73-as-adY" firstAttribute="bottom" secondItem="s6E-ou-4Kp" secondAttribute="top" id="Cdf-zX-NX1"/>
+                            <constraint firstItem="p73-as-adY" firstAttribute="top" secondItem="Sdl-K5-BDY" secondAttribute="bottom" id="NgM-Dg-GGN"/>
+                            <constraint firstAttribute="trailing" secondItem="p73-as-adY" secondAttribute="trailing" id="i1L-Lc-Xi3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="p73-as-adY" id="WYq-PF-NZt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8rQ-eK-PKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6154" y="-376"/>
+        </scene>
         <!--Survey Times View Controller-->
         <scene sceneID="0DV-ot-gyX">
             <objects>
@@ -340,6 +407,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <segue destination="a51-RY-YSj" kind="show" id="JAI-tL-jhR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGQ-0I-lV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -423,9 +493,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utg-QI-awZ">
-                                <rect key="frame" x="166" y="224" width="42" height="30"/>
+                                <rect key="frame" x="166" y="224" width="42" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log In"/>
+                                <connections>
+                                    <segue destination="a51-RY-YSj" kind="show" id="Fon-nd-0sH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -460,4 +533,7 @@
         <image name="WeillCornellLogo" width="1023.75" height="368.25"/>
         <image name="bridge_bgrnd" width="604" height="461"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JAI-tL-jhR"/>
+    </inferredMetricsTieBreakers>
 </document>
