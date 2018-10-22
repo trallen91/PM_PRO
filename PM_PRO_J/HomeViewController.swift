@@ -12,17 +12,31 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var surveys: [String] = []
 
-    let rightBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
-//        barButtonItem.tintColor = UIColor.blue
-        return barButtonItem
-    }()
+    @objc func settingsItemClicked()
+    {
+        print("Settings button clicked")
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Home"
+        self.navigationItem.hidesBackButton = true
+        
+        //This definition has to be in the viewDidLoad func to work, apparently.
+        let rightBarButtonItem: UIBarButtonItem = {
+            let barButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(HomeViewController.settingsItemClicked))
+            
+            return barButtonItem
+        }()
+        
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+//        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .search, target: self, action: "barButtonItemClicked:"), animated: true)
+//        self.navigationItem.rightBarButtonItem.
+//        addTarget(self, action: "buttonClicked:", for: .touchUpInside)
         
         //programmatically make segue to the Settings ViewController
         
@@ -34,6 +48,8 @@ class HomeViewController: UIViewController {
         tableView.estimatedRowHeight = 600
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+
     
     func createSurveyArray() -> [String] {
         //this function should load all of the outstanding surveys
