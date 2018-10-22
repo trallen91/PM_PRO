@@ -11,11 +11,15 @@ import ResearchKit
 import UIKit
 
 class LoginViewController: UIViewController {
+    var justSignedOut : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Log In"
+        if (justSignedOut) {
+            self.navigationItem.hidesBackButton = true
+        }
     }
     
     override func didReceiveMemoryWarning() {

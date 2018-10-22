@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
 
     @objc func settingsItemClicked()
     {
-        print("Settings button clicked")
+        self.performSegue(withIdentifier: "settingsSegue", sender: nil)
     }
     
 

@@ -32,6 +32,7 @@
 		F8EEB265217CF01900612D84 /* SetSurveyTimeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB264217CF01900612D84 /* SetSurveyTimeTask.swift */; };
 		F8EEB267217E0C9600612D84 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB266217E0C9600612D84 /* HomeViewController.swift */; };
 		F8EEB269217E169100612D84 /* SurveyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB268217E169100612D84 /* SurveyCell.swift */; };
+		F8EEB26B217E708000612D84 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB26A217E708000612D84 /* SettingsViewController.swift */; };
 		FD52590CFEB559EDFBF0BA18 /* Pods_PM_PRO_JUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E845A54E973A81D37A8DC5CA /* Pods_PM_PRO_JUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		F8EEB264217CF01900612D84 /* SetSurveyTimeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSurveyTimeTask.swift; sourceTree = "<group>"; };
 		F8EEB266217E0C9600612D84 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8EEB268217E169100612D84 /* SurveyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCell.swift; sourceTree = "<group>"; };
+		F8EEB26A217E708000612D84 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				F8EEB264217CF01900612D84 /* SetSurveyTimeTask.swift */,
 				F8EEB266217E0C9600612D84 /* HomeViewController.swift */,
 				F8EEB268217E169100612D84 /* SurveyCell.swift */,
+				F8EEB26A217E708000612D84 /* SettingsViewController.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				F8EEB2492171303400612D84 /* LocationManager.swift in Sources */,
 				F8EEB267217E0C9600612D84 /* HomeViewController.swift in Sources */,
 				F8EEB25F217BC4EF00612D84 /* LoginViewController.swift in Sources */,
+				F8EEB26B217E708000612D84 /* SettingsViewController.swift in Sources */,
 				F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */,
 				F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */,
 				F8EEB25B217A578000612D84 /* ConsentViewController.swift in Sources */,
