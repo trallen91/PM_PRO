@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ResearchKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -83,7 +84,9 @@ class HomeViewController: UIViewController {
     
     @objc func standardSurveyClicked()
     {
-        print("Standard Survey button clicked")
+        let taskViewController = ORKTaskViewController(task: StandardSurveyTask, taskRun: nil)
+        taskViewController.delegate = self
+        present(taskViewController, animated: true, completion: nil)
     }
     
     @objc func wbSurveyClicked()
@@ -128,4 +131,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //        print(cell.surveyName.text)
         return cell
     }
+}
+
+extension HomeViewController : ORKTaskViewControllerDelegate {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        
+        
+        
+        taskViewController.dismiss(animated: true, completion: nil)
+        
+        if reason == .completed {
+            print("You completed this task!")
+        }
+    }
+    
 }
