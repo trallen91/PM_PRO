@@ -10,7 +10,7 @@ import UIKit
 
 class SurveyCell: UITableViewCell {
     
-    @IBOutlet weak var surveyName: UILabel!
+    @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var surveyDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

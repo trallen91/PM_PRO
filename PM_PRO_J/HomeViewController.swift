@@ -76,10 +76,29 @@ class HomeViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+//    @objc func surveyButtonClicked()
+//    {
+//        print("Survey button clicked")
+//    }
     
+    @objc func standardSurveyClicked()
+    {
+        print("Standard Survey button clicked")
+    }
+    
+    @objc func wbSurveyClicked()
+    {
+        print("Well-Being Survey button clicked")
+    }
+    
+    @objc func seSurveyClicked()
+    {
+        print("Side Effect Survey button clicked")
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        print("Table View func1 executed")
         print(surveys.count)
@@ -92,8 +111,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyCell") as! SurveyCell
         
-        cell.surveyName.text = survey
-        print(cell.surveyName.text)
+
+        cell.surveyButton.setTitle(survey,for: .normal)
+        cell.surveyButton.contentHorizontalAlignment = .left
+        cell.surveyDate.text = "10/23/18"
+        if(survey == "Standardized Survey") {
+            cell.surveyButton.addTarget(self, action: #selector(HomeViewController.standardSurveyClicked), for: .touchUpInside)
+        }
+        else if (survey == "Well-Being Survey") {
+            cell.surveyButton.addTarget(self, action: #selector(HomeViewController.wbSurveyClicked), for: .touchUpInside)
+        }
+        else if(survey == "Side Effects Survey") {
+            cell.surveyButton.addTarget(self, action: #selector(HomeViewController.seSurveyClicked), for: .touchUpInside)
+        }
+
+//        print(cell.surveyName.text)
         return cell
     }
 }
