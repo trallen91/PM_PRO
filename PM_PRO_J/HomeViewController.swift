@@ -98,7 +98,9 @@ class HomeViewController: UIViewController {
     
     @objc func seSurveyClicked()
     {
-        print("Side Effect Survey button clicked")
+        let taskViewController = ORKTaskViewController(task: SideEffectSurveyTask, taskRun: nil)
+        taskViewController.delegate = self
+        present(taskViewController, animated: true, completion: nil)
     }
 }
 

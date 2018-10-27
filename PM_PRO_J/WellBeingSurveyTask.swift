@@ -13,7 +13,7 @@ public var WellBeingSurveyTask: ORKOrderedTask {
     var steps = [ORKStep]()
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
     instructionStep.title = "Well Being Survey"
-    instructionStep.text = "The following statements are statements that other people with your ilness have said are important.  Select the answer that describes your agreement with each statement, as it applies to the PAST 7 DAYS"
+    instructionStep.text = "The following statements are statements that other people with your illness have said are important.  Select the answer that describes your agreement with each statement, as it applies to the PAST 7 DAYS."
     steps += [instructionStep]
     
     let wbStatements = ["I have a lack of energy.",
