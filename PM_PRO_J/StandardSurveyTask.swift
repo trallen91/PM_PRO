@@ -14,8 +14,7 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     
     //1 - Declare Constants for step identifiers
     
-    let question2ID = "question 2"
-    let completionChoice2ID = "completionChoice 2"
+
     
     //INSTRUCTION STEP
     let instructionID = "Instruction Step"
@@ -41,30 +40,74 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     newTreatDetailsStep.formItems = [newTreatName, newTreatDate]
     steps += [newTreatDetailsStep]
     
-    let question2 = ORKQuestionStep(identifier: question2ID, title: "How many apps do you download pweek?", answer: ORKAnswerFormat.integerAnswerFormat(withUnit: "Apps per week"))
     
-    steps += [question2]
+    //CHANGE TREATMENTS STEP
+    //yes-no
+    let changeTreatQID = "change treatments question"
+    let changeTreatQStep = ORKQuestionStep(identifier: changeTreatQID, title: "Have you changed any of your treatments?", answer: ORKAnswerFormat.booleanAnswerFormat())
+    steps += [changeTreatQStep]
     
-    //    let completionStep1 = ORKCompletionStep(identifier: completionChoice1ID)
-    //    completionStep1.title = "Thank you for letting us know that you are Softwareitis free!"
+    //if yes section
+    let changeTreatDetailsID = "changeTreatDetailsID"
+    let changeDetailsStep = ORKFormStep(identifier: changeTreatDetailsID)
+    changeDetailsStep.title = "Change Treatment Details"
     
-    //    steps += [completionStep1]
+    let changeTreatName = ORKFormItem(identifier:"changeTreatName", text:"Enter name of treatment(s) changed", answerFormat: ORKTextAnswerFormat())
+    let changeTreatDetails = ORKFormItem(identifier:"changeTreatDetails", text:"Details of treatment modification, inlcuding dose, regimen, etc.", answerFormat: ORKTextAnswerFormat())
+
+    changeDetailsStep.formItems = [changeTreatName, changeTreatDetails]
     
-    let completionStep2 = ORKCompletionStep(identifier: completionChoice2ID)
-    completionStep2.title = "Thank you for taking our survey!"
+    steps += [changeDetailsStep]
     
-    steps += [completionStep2]
+    
+    //STOP TREATMENTS SECTION
+    let stopTreatQID = "Stop Treatments Questions"
+    let stopTreatQStep = ORKQuestionStep(identifier: stopTreatQID, title: "Have you stopped any of your treatments?", answer: ORKAnswerFormat.booleanAnswerFormat())
+    steps += [stopTreatQStep]
+    //if yes section
+    let stopTreatYesID = "stopTreatYesID"
+    let stopTreatYesStep = ORKFormStep(identifier: stopTreatYesID)
+    stopTreatYesStep.title = "Discontinuation Details"
+    
+    let stopTreatName = ORKFormItem(identifier: "stopTreatName", text:"Enter name of discontinued treatment(s)", answerFormat: ORKTextAnswerFormat())
+    let stopTreatDate = ORKFormItem(identifier: "stopTreatDate", text:"Enter approximate stop date(s)", answerFormat: ORKTextAnswerFormat())
+    let stopTreatReason = ORKFormItem(identifier: "stopTreatReason", text:"Reason for discontinuation", answerFormat: ORKTextAnswerFormat())
+    
+    stopTreatYesStep.formItems = [stopTreatName, stopTreatDate,stopTreatReason]
+    steps += [stopTreatYesStep]
+    
+    let completionStepID = "Completion Step"
+    let completionStep = ORKCompletionStep(identifier: completionStepID)
+    completionStep.title = "Thank you for completing the survey!"
+    
+    steps += [completionStep]
     
     let task = ORKNavigableOrderedTask(identifier: "StandardSurveyTask", steps: steps)
     
-    //1
-    let newTreatQPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: ORKResultSelector(resultIdentifier: newTreatQID), expectedAnswer: false)
+    let topLevelQuestionIDs = [newTreatQID, changeTreatQID, stopTreatQID]
     
-    //2
-    let predicatedNavigationRule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(newTreatQPredicate, question2ID)], defaultStepIdentifierOrNil: nil)
+    for (idx,questionID) in topLevelQuestionIDs.enumerated() {
+        var nextQID : String
+        
+        if (idx == topLevelQuestionIDs.count - 1) {
+            nextQID = completionStepID
+        }
+        else {
+            nextQID = topLevelQuestionIDs[idx+1]
+        }
+        //1
+        let qPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: ORKResultSelector(resultIdentifier: questionID), expectedAnswer: false)
+        
+        //2
+        let predicatedNavigationRule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(qPredicate, nextQID)], defaultStepIdentifierOrNil: nil)
+        
+        //3
+        task.setNavigationRule(predicatedNavigationRule, forTriggerStepIdentifier: questionID)
+        
+    }
     
-    //3
-    task.setNavigationRule(predicatedNavigationRule, forTriggerStepIdentifier: newTreatQID)
+    
+
     
     //    //1
     //    let directNavigationRule1 = ORKDirectStepNavigationRule(destinationStepIdentifier: completionChoice2ID)
