@@ -91,7 +91,9 @@ class HomeViewController: UIViewController {
     
     @objc func wbSurveyClicked()
     {
-        print("Well-Being Survey button clicked")
+        let taskViewController = ORKTaskViewController(task: WellBeingSurveyTask, taskRun: nil)
+        taskViewController.delegate = self
+        present(taskViewController, animated: true, completion: nil)
     }
     
     @objc func seSurveyClicked()

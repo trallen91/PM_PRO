@@ -36,6 +36,7 @@
 		F8EEB26D217E809900612D84 /* EligibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB26C217E809900612D84 /* EligibilityViewController.swift */; };
 		F8EEB26F217E838B00612D84 /* EligibilityTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB26E217E838B00612D84 /* EligibilityTask.swift */; };
 		F8EEB271217FF65100612D84 /* StandardSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB270217FF65100612D84 /* StandardSurveyTask.swift */; };
+		F8EEB2732184AFAB00612D84 /* WellBeingSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2722184AFAA00612D84 /* WellBeingSurveyTask.swift */; };
 		FD52590CFEB559EDFBF0BA18 /* Pods_PM_PRO_JUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E845A54E973A81D37A8DC5CA /* Pods_PM_PRO_JUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		F8EEB26C217E809900612D84 /* EligibilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityViewController.swift; sourceTree = "<group>"; };
 		F8EEB26E217E838B00612D84 /* EligibilityTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityTask.swift; sourceTree = "<group>"; };
 		F8EEB270217FF65100612D84 /* StandardSurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSurveyTask.swift; sourceTree = "<group>"; };
+		F8EEB2722184AFAA00612D84 /* WellBeingSurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellBeingSurveyTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				F8EEB26C217E809900612D84 /* EligibilityViewController.swift */,
 				F8EEB26E217E838B00612D84 /* EligibilityTask.swift */,
 				F8EEB270217FF65100612D84 /* StandardSurveyTask.swift */,
+				F8EEB2722184AFAA00612D84 /* WellBeingSurveyTask.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				F8EEB267217E0C9600612D84 /* HomeViewController.swift in Sources */,
 				F8EEB25F217BC4EF00612D84 /* LoginViewController.swift in Sources */,
 				F8EEB26B217E708000612D84 /* SettingsViewController.swift in Sources */,
+				F8EEB2732184AFAB00612D84 /* WellBeingSurveyTask.swift in Sources */,
 				F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */,
 				F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */,
 				F8EEB26D217E809900612D84 /* EligibilityViewController.swift in Sources */,
