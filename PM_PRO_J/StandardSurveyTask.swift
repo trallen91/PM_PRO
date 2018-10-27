@@ -9,26 +9,71 @@
 import Foundation
 import ResearchKit
 
-public var StandardSurveyTask: ORKOrderedTask {
+public var StandardSurveyTask: ORKNavigableOrderedTask {
     var steps = [ORKStep]()
-    let instructionStep = ORKInstructionStep(identifier: "IntroStep")
-    instructionStep.title = "Check Eligibility"
-    instructionStep.text = "Please answer 'Yes' or 'No' to the following Inclusion Criteria"
-    steps += [instructionStep]
     
-    let inclusionCriteria = ["You are 18 Years or Older", "You have had an Android or iPhone device for at least one year prior to enrolling in the study", "You have a Google account that is actively in use", "Spend time searching and browsing web on a weekly basis", "You spend time out of the house each day when feeling well (i.e. not largely home-bound)"]
+    //1 - Declare Constants for step identifiers
     
-    for (index, criterion) in inclusionCriteria.enumerated() {
-        print("Item \(index + 1): \(criterion)")
-        let critIdentifier = "criteria \(index + 1)"
-        
-        let criterionStep = ORKQuestionStep(identifier: critIdentifier)
-        criterionStep.title = criterion
-        
-        criterionStep.answerFormat = ORKBooleanAnswerFormat()
-        criterionStep.isOptional = false
-        steps += [criterionStep]
-    }
+    let question2ID = "question 2"
+    let completionChoice2ID = "completionChoice 2"
     
-    return ORKOrderedTask(identifier: "StandardSurveyTask", steps: steps)
+    //INSTRUCTION STEP
+    let instructionID = "Instruction Step"
+    let instStep = ORKInstructionStep(identifier: instructionID)
+    instStep.title = "Standardized Survey"
+    instStep.detailText = "This bi-weekly survey is intended to monitor changes/updates in therapies, clinical care and histories since your last survey"
+    
+    steps += [instStep]
+    
+    // NEW TREATMENTS STEP
+    
+    //yes-no
+    let newTreatQID = "new treatments question"
+    let newTreatQStep = ORKQuestionStep(identifier: newTreatQID, title: "Have you started any new treatments?", answer: ORKAnswerFormat.booleanAnswerFormat())
+    steps += [newTreatQStep]
+    
+    //if yes section
+    let newTreatDetailsID = "newTreatDetailsID"
+    let newTreatDetailsStep = ORKFormStep(identifier: newTreatDetailsID)
+    newTreatDetailsStep.title = "New Treatment Details"
+    let newTreatName = ORKFormItem(identifier:"newTreatName", text:"Enter Name of Treatment(s)", answerFormat: ORKTextAnswerFormat())
+    let newTreatDate = ORKFormItem(identifier:"newTreatDate", text:"Enter Approximate Start Date(s)", answerFormat: ORKTextAnswerFormat())
+    newTreatDetailsStep.formItems = [newTreatName, newTreatDate]
+    steps += [newTreatDetailsStep]
+    
+    let question2 = ORKQuestionStep(identifier: question2ID, title: "How many apps do you download pweek?", answer: ORKAnswerFormat.integerAnswerFormat(withUnit: "Apps per week"))
+    
+    steps += [question2]
+    
+    //    let completionStep1 = ORKCompletionStep(identifier: completionChoice1ID)
+    //    completionStep1.title = "Thank you for letting us know that you are Softwareitis free!"
+    
+    //    steps += [completionStep1]
+    
+    let completionStep2 = ORKCompletionStep(identifier: completionChoice2ID)
+    completionStep2.title = "Thank you for taking our survey!"
+    
+    steps += [completionStep2]
+    
+    let task = ORKNavigableOrderedTask(identifier: "StandardSurveyTask", steps: steps)
+    
+    //1
+    let newTreatQPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: ORKResultSelector(resultIdentifier: newTreatQID), expectedAnswer: false)
+    
+    //2
+    let predicatedNavigationRule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(newTreatQPredicate, question2ID)], defaultStepIdentifierOrNil: nil)
+    
+    //3
+    task.setNavigationRule(predicatedNavigationRule, forTriggerStepIdentifier: newTreatQID)
+    
+    //    //1
+    //    let directNavigationRule1 = ORKDirectStepNavigationRule(destinationStepIdentifier: completionChoice2ID)
+    //    task.setNavigationRule(directNavigationRule1, forTriggerStepIdentifier: question2ID)
+    //
+    //    //2
+    //    let directNavigationRule2 = ORKDirectStepNavigationRule(destinationStepIdentifier: ORKNullStepIdentifier)
+    //    task.setNavigationRule(directNavigationRule2, forTriggerStepIdentifier: newTreatDetailsID)
+    
+    
+    return task
 }

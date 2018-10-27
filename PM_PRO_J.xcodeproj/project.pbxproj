@@ -38,6 +38,7 @@
 		F8EEB271217FF65100612D84 /* StandardSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB270217FF65100612D84 /* StandardSurveyTask.swift */; };
 		F8EEB2732184AFAB00612D84 /* WellBeingSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2722184AFAA00612D84 /* WellBeingSurveyTask.swift */; };
 		F8EEB2752184BCD000612D84 /* SideEffectSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2742184BCD000612D84 /* SideEffectSurveyTask.swift */; };
+		F8EEB2772184D93200612D84 /* ORKStepNavigationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2762184D93100612D84 /* ORKStepNavigationRule.swift */; };
 		FD52590CFEB559EDFBF0BA18 /* Pods_PM_PRO_JUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E845A54E973A81D37A8DC5CA /* Pods_PM_PRO_JUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		F8EEB270217FF65100612D84 /* StandardSurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSurveyTask.swift; sourceTree = "<group>"; };
 		F8EEB2722184AFAA00612D84 /* WellBeingSurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellBeingSurveyTask.swift; sourceTree = "<group>"; };
 		F8EEB2742184BCD000612D84 /* SideEffectSurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectSurveyTask.swift; sourceTree = "<group>"; };
+		F8EEB2762184D93100612D84 /* ORKStepNavigationRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORKStepNavigationRule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				F8EEB270217FF65100612D84 /* StandardSurveyTask.swift */,
 				F8EEB2722184AFAA00612D84 /* WellBeingSurveyTask.swift */,
 				F8EEB2742184BCD000612D84 /* SideEffectSurveyTask.swift */,
+				F8EEB2762184D93100612D84 /* ORKStepNavigationRule.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */,
 				F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */,
 				F8EEB26D217E809900612D84 /* EligibilityViewController.swift in Sources */,
+				F8EEB2772184D93200612D84 /* ORKStepNavigationRule.swift in Sources */,
 				F8EEB25B217A578000612D84 /* ConsentViewController.swift in Sources */,
 				F8EEB25D217BC05200612D84 /* RegistrationViewController.swift in Sources */,
 				F8EEB271217FF65100612D84 /* StandardSurveyTask.swift in Sources */,
