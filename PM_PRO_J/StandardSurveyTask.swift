@@ -60,7 +60,7 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     steps += [changeDetailsStep]
     
     
-    //STOP TREATMENTS SECTION
+    //STOP TREATMENTS STEP
     let stopTreatQID = "Stop Treatments Questions"
     let stopTreatQStep = ORKQuestionStep(identifier: stopTreatQID, title: "Have you stopped any of your treatments?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [stopTreatQStep]
@@ -76,6 +76,116 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     stopTreatYesStep.formItems = [stopTreatName, stopTreatDate,stopTreatReason]
     steps += [stopTreatYesStep]
     
+    //HOSPITALIZATION STEP
+    let hospQID = "HospitalizationQuestion"
+    let hospStep = ORKQuestionStep(identifier: hospQID, title: "Have you been hospitalized since your last survey?", answer: ORKAnswerFormat.booleanAnswerFormat())
+    steps += [hospStep]
+    //if yes section
+    let hospYesID = "hospYesID"
+    let hospYesStep = ORKFormStep(identifier: hospYesID)
+    hospYesStep.title = "Hospitalization Details"
+    
+    let hospName = ORKFormItem(identifier: "hospName", text:"Name of institution in which you were hospitalized", answerFormat: ORKTextAnswerFormat())
+
+    let hospReason = ORKFormItem(identifier: "hospReason", text:"Reason for hospitalization", answerFormat: ORKTextAnswerFormat())
+    
+    hospYesStep.formItems = [hospName, hospReason]
+    steps += [hospYesStep]
+    
+    //PROCEDURE STEP
+    let procIdentifer = "procIdentifier"
+    
+    let procedureTextChoices = [
+        ORKTextChoice(text: "Scans", value: "Scans" as NSString),
+        ORKTextChoice(text: "Biopsy", value: "Biopsy" as NSString),
+        ORKTextChoice(text: "Cancer-Related Surgery", value: "Cancer-Related Surgery" as NSString),
+        ORKTextChoice(text: "Other surgery", value: "Other surgery" as NSString)
+        
+    ]
+    let procedureAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .multipleChoice, textChoices: procedureTextChoices)
+    
+    let procStep = ORKFormStep(identifier: procIdentifer)
+    let procChoiceItem = ORKFormItem(identifier: "procChoice", text:"Select any of the following surgeries you have undergone", answerFormat: procedureAnswerFormat)
+    let procDetailItem = ORKFormItem(identifier: "procDetial", text: "Please provide any known details of the procedure(s), including procedure type, reason, date, location, etc.", answerFormat: ORKTextAnswerFormat())
+    procStep.formItems = [procChoiceItem, procDetailItem]
+    
+    steps += [procStep]
+    
+    
+    //EVENTS STEP
+    let eventsIdentifer = "eventsIdentifier"
+    
+    let eventsTextChoices = [
+        ORKTextChoice(text: "Progression of disease", value: "Progression of disease" as NSString),
+        ORKTextChoice(text: "Diagnosis of secondary malignancy", value: "Diagnosis of secondary malignancy" as NSString),
+        ORKTextChoice(text: "Other significant cancer-related event (ex: PSA rise)", value: "Other significant cancer-related event" as NSString),
+        
+    ]
+    let eventsAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .multipleChoice, textChoices: eventsTextChoices)
+    
+    let eventsStep = ORKFormStep(identifier: eventsIdentifer)
+    let eventsChoiceItem = ORKFormItem(identifier: "eventsChoice", text:"Select any of the following events you have experienced:", answerFormat: eventsAnswerFormat)
+    let eventDetailItem = ORKFormItem(identifier: "eventDetail", text: "Please provide any known details of the event(s)", answerFormat: ORKTextAnswerFormat())
+    eventsStep.formItems = [eventsChoiceItem, eventDetailItem]
+    
+    steps += [eventsStep]
+    
+    //QOL STEP
+    
+    let qolIdentifier = "qolIdentifier"
+    
+    let qolStep = ORKQuestionStep(identifier: qolIdentifier)
+    qolStep.title = "How would you rate your overall health since the last survey?"
+    
+    qolStep.answerFormat = ORKScaleAnswerFormat(maximumValue: 7, minimumValue: 1, defaultValue: 4, step: 1, vertical: false, maximumValueDescription: "Excellent", minimumValueDescription: "Very Poor")
+    
+    steps += [qolStep]
+    
+    //TREATING PHYSICIAN STEP
+    let treatPhysID = "Treating Physician Question"
+    let treatPhysStep = ORKQuestionStep(identifier: treatPhysID, title: "Have there been any changes to your treating physician?", answer: ORKAnswerFormat.booleanAnswerFormat())
+    steps += [treatPhysStep]
+    //if yes section
+    let newPhysYesID = "newPhysYesID"
+    let newPhysYesStep = ORKFormStep(identifier: newPhysYesID)
+    newPhysYesStep.title = "Please provide any known information about new treating physician"
+    
+    let newPhysName = ORKFormItem(identifier: "newPhysName", text:"Name:", answerFormat: ORKTextAnswerFormat())
+    let newPhysLoc = ORKFormItem(identifier: "newPhysLoc", text:"Institution/Location:", answerFormat: ORKTextAnswerFormat())
+    let newPhysContact = ORKFormItem(identifier: "newPhysContact", text:"Contact Information", answerFormat: ORKTextAnswerFormat())
+    
+    newPhysYesStep.formItems = [newPhysName, newPhysLoc,newPhysContact]
+    steps += [newPhysYesStep]
+    
+    //CO-MORBIDITIES STEP
+    let comorbidID = "Comorbidities Question"
+    let comorbidStep = ORKQuestionStep(identifier: comorbidID, title: "Have you been diagnosed with any other medical conditions?", answer: ORKAnswerFormat.booleanAnswerFormat())
+    steps += [comorbidStep]
+    //if yes section
+    let comorbidYesID = "comorbidYesID"
+    let comorbidYesStep = ORKFormStep(identifier: comorbidYesID)
+    comorbidYesStep.title = "Please provide any known details of condition, including diagnosis, date of diagnosis, and any treatment received."
+    
+    let comborbidDetail = ORKFormItem(identifier: "comborbidDetail", text:"Details", answerFormat: ORKTextAnswerFormat())
+    
+    comorbidYesStep.formItems = [comborbidDetail]
+    steps += [comorbidYesStep]
+    
+    //FAM HISTORY STEP
+    let famHistID = "Family History Question"
+    let famHistStep = ORKQuestionStep(identifier: famHistID, title: "Have any of your family members been newly diagnosed with cancer?", answer: ORKAnswerFormat.booleanAnswerFormat())
+    steps += [famHistStep]
+    //if yes section
+    let famHistYesID = "famHistYesID"
+    let famHistYesStep = ORKFormStep(identifier: famHistYesID)
+    comorbidYesStep.title = "Please provide any known details of the diagnosis"
+    
+    let famHistDetail = ORKFormItem(identifier: "famHistDetail", text:"Details", answerFormat: ORKTextAnswerFormat())
+    
+    famHistYesStep.formItems = [famHistDetail]
+    steps += [famHistYesStep]
+    
+    //COMPLETION STEP
     let completionStepID = "Completion Step"
     let completionStep = ORKCompletionStep(identifier: completionStepID)
     completionStep.title = "Thank you for completing the survey!"
@@ -84,13 +194,17 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     
     let task = ORKNavigableOrderedTask(identifier: "StandardSurveyTask", steps: steps)
     
-    let topLevelQuestionIDs = [newTreatQID, changeTreatQID, stopTreatQID]
+    // Set the predicate rules
+    let topLevelQuestionIDs = [newTreatQID, changeTreatQID, stopTreatQID, hospQID, procIdentifer, eventsIdentifer, qolIdentifier, treatPhysID, comorbidID, famHistID]
     
     for (idx,questionID) in topLevelQuestionIDs.enumerated() {
         var nextQID : String
         
         if (idx == topLevelQuestionIDs.count - 1) {
             nextQID = completionStepID
+        }
+        else if (questionID == procIdentifer || questionID == eventsIdentifer || questionID == qolIdentifier) {
+            continue
         }
         else {
             nextQID = topLevelQuestionIDs[idx+1]
@@ -105,18 +219,6 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
         task.setNavigationRule(predicatedNavigationRule, forTriggerStepIdentifier: questionID)
         
     }
-    
-    
-
-    
-    //    //1
-    //    let directNavigationRule1 = ORKDirectStepNavigationRule(destinationStepIdentifier: completionChoice2ID)
-    //    task.setNavigationRule(directNavigationRule1, forTriggerStepIdentifier: question2ID)
-    //
-    //    //2
-    //    let directNavigationRule2 = ORKDirectStepNavigationRule(destinationStepIdentifier: ORKNullStepIdentifier)
-    //    task.setNavigationRule(directNavigationRule2, forTriggerStepIdentifier: newTreatDetailsID)
-    
     
     return task
 }
