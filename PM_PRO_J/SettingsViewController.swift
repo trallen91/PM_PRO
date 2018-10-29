@@ -29,6 +29,9 @@ class SettingsViewController: UIViewController {
         present(taskViewController, animated: true, completion: nil)
     }
 
+    @IBAction func signOutTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "signoutSegue", sender: nil)
+    }
     @IBAction func timeChangeTapped(_ sender: UIButton) {
         let taskViewController = ORKTaskViewController(task: SetSurveyTimeTask, taskRun: nil)
         taskViewController.delegate = self

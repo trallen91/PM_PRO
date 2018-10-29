@@ -40,7 +40,7 @@ extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
         
         
         if reason == .completed {
-            print("NICE!!")
+          self.performSegue(withIdentifier: "setSurveySegue", sender: nil)
         }
     }
     
