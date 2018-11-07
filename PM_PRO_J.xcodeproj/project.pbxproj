@@ -682,6 +682,7 @@
 			baseConfigurationReference = B122685070988A6D41BE5A94 /* Pods-PM_PRO_J.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MEH288UCB4;
 				INFOPLIST_FILE = PM_PRO_J/Info.plist;
@@ -701,6 +702,7 @@
 			baseConfigurationReference = 938DD703FD55F4EA0C661FCA /* Pods-PM_PRO_J.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MEH288UCB4;
 				INFOPLIST_FILE = PM_PRO_J/Info.plist;
