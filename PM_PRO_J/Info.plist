@@ -17,15 +17,23 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires your camera</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>This app requires collecting certain health data</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>This app requires collecting updates on certain health data</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is used to help identify when you enter and leave important places.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app requires your microphone</string>
+	<key>NSMotionUsageDescription</key>
+	<string>This app requires detection of your motion</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
