@@ -26,63 +26,35 @@ class ViewController: UIViewController {
     }
     @IBAction func joinStudy(_ sender: UIButton) {
     }
-    
-//    @IBAction func consentTapped(_ sender: UIButton) {
-//        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
-//        taskViewController.delegate = self
-//        present(taskViewController, animated: true, completion: nil)
-//    }
-    @IBAction func surveyTapped(_ sender: UIButton) {
-        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
-        taskViewController.delegate = self
-        present(taskViewController, animated: true, completion: nil)
-    }
-}
 
-extension ViewController : ORKTaskViewControllerDelegate {
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        
-        print(reason)
-        let taskResult = taskViewController.result.results
-        let myStore = Store()
-        let myLocMgr = ANCLocationManager(store: myStore)
-        for stepResults in taskResult! as! [ORKStepResult]
-        {
-            print("---")
-            for result in stepResults.results!
-            {
-                print(result.identifier)
-                let locAnswerResult = result as! ORKLocationQuestionResult
-                let loc = locAnswerResult.locationAnswer!
-                print(loc.coordinate)
-                
-                if result.identifier == "homeAddress"
-                {
-                    print("Home Address: ")
-                    myLocMgr.home = loc.coordinate
-
+    @IBAction func hitBackEnd(_ sender: UIButton) {
+        // stolen from https://dzone.com/articles/how-to-start-building-a-backend-for-your-ios-app-w
+        let json = ["user":"larry"]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            let url = NSURL(string: "http://127.0.0.1:5000/api/get_messages")!
+            let request = NSMutableURLRequest(url: url as URL)
+            request.httpMethod = "POST"
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
+                if error != nil{
+                    print("Error -> \(error)")
+                    return
                 }
-                if result.identifier == "workAddress"
-                {
-                    print("Work Address: ")
-                    print(myLocMgr.work = loc.coordinate)
-                }
-                if result.identifier == "hospitalAddress"
-                {
-                    print("Hospital Address: ")
-//                    print(myLocMgr.work)
+                do {
+                    let result = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
+                    print("Result -> \(result)")
+                } catch {
+                    print("Error -> \(error)")
                 }
             }
+            task.resume()
+        } catch {
+            print(error)
         }
-        
     }
-    
-    
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        //Handle results with taskViewController.result
-        taskViewController.dismiss(animated: true, completion: nil)
-    }
-    
 }
+
 
 

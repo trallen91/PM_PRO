@@ -72,6 +72,14 @@
                                     <segue destination="Qsk-ha-cUd" kind="show" id="79u-Q3-dmw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lG-PH-svR">
+                                <rect key="frame" x="146" y="433" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Hit Backend"/>
+                                <connections>
+                                    <action selector="hitBackEnd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZOy-Ua-TCh"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WeillCornellLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XLu-Dt-KiN">
                                 <rect key="frame" x="6" y="64" width="145" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -766,7 +774,7 @@ Correlating genomic data with the comprehensive clinical data collected (e.g., t
         <image name="bridge_bgrnd" width="604" height="461"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wJK-Xy-tDp"/>
+        <segue reference="tvj-Dh-Mpn"/>
         <segue reference="JAI-tL-jhR"/>
     </inferredMetricsTieBreakers>
 </document>
