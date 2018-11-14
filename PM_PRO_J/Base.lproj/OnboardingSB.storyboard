@@ -8,91 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PM_PRO_J" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bridge_bgrnd" translatesAutoresizingMaskIntoConstraints="NO" id="D21-m6-2Bl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIh-hI-wY5">
-                                <rect key="frame" x="109" y="594" width="171" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Already Participating?">
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="learnMore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z0Y-XT-sum"/>
-                                    <segue destination="NJh-zE-mII" kind="show" id="tvj-Dh-Mpn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsB-iL-kgr">
-                                <rect key="frame" x="69" y="546" width="240" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Join Study">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinStudy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSE-UL-vUc"/>
-                                    <segue destination="9OM-aT-2K2" kind="show" id="qvZ-pK-bLb"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cornell Tech Logo" translatesAutoresizingMaskIntoConstraints="NO" id="QPn-3X-FPx">
-                                <rect key="frame" x="230" y="62" width="145" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Research for Precision Medicine Study" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpT-CU-NPX">
-                                <rect key="frame" x="-64" y="238" width="503" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZI-Th-zOv">
-                                <rect key="frame" x="148" y="318" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Learn More"/>
-                                <connections>
-                                    <action selector="learnMore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VOI-pX-XGv"/>
-                                    <segue destination="Qsk-ha-cUd" kind="show" id="79u-Q3-dmw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lG-PH-svR">
-                                <rect key="frame" x="146" y="433" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hit Backend"/>
-                                <connections>
-                                    <action selector="hitBackEnd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZOy-Ua-TCh"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WeillCornellLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XLu-Dt-KiN">
-                                <rect key="frame" x="6" y="64" width="145" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Lep-p9-JLP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="972" y="30.134932533733135"/>
-        </scene>
         <!--Inclusion Exclusion View Controller-->
         <scene sceneID="BDZ-Bp-Tng">
             <objects>
@@ -232,12 +147,12 @@
                                 <connections>
                                     <action selector="checkEligTapped:" destination="9OM-aT-2K2" eventType="touchUpInside" id="ZZa-dc-aJs"/>
                                     <action selector="consentTapped:" destination="KcG-x0-ehY" eventType="touchUpInside" id="ujl-Ko-eXe"/>
-                                    <action selector="joinStudy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XNr-vp-Jil"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yD9-IA-dNW"/>
                     <connections>
                         <segue destination="KcG-x0-ehY" kind="show" identifier="isEligibleSegue" id="tYR-Jv-Bdz"/>
                         <segue destination="RJw-vj-QI6" kind="show" identifier="isIneligibleSegue" id="dzF-Ou-XGs"/>
@@ -245,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0V-oS-aTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1873" y="329"/>
+            <point key="canvasLocation" x="1052" y="30"/>
         </scene>
         <!--Consent View Controller-->
         <scene sceneID="tMW-Nt-sID">
@@ -277,14 +192,13 @@
                                 </state>
                                 <connections>
                                     <action selector="consentTapped:" destination="KcG-x0-ehY" eventType="touchUpInside" id="vTe-Nf-VIK"/>
-                                    <action selector="joinStudy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7lO-ms-1oh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <segue destination="gy1-hX-nYX" kind="show" identifier="consentCompleteSegue" id="TmR-mo-ijq"/>
+                        <segue destination="seR-dM-FJd" kind="show" identifier="consentCompleteSegue" id="b0W-Zd-Lry"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXf-p5-1aX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -375,9 +289,6 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="seR-dM-FJd" kind="show" id="1Sa-NQ-2ie"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -385,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJk-tJ-BrT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597.5999999999999" y="329.68515742128938"/>
+            <point key="canvasLocation" x="4007" y="1201"/>
         </scene>
         <!--Geofence Set View Controller-->
         <scene sceneID="Cyt-ck-xiw">
@@ -422,7 +333,7 @@
                                 <rect key="frame" x="0.0" y="201" width="375" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">As part of the Precision Medicine Sub-Study, this app will utilize location services data to identify when you leave and arrive at the following locations:   1)Home 2)Work  3)Primary Hospital outside of Weill   The use of mobile devices to track entry and exiting from specified locations is commonly referred to as "Geofencing", and will be used in this study to estimate time out of the house, time at work, time sedentary, unexpected hospitalizations and overall daily activity.  Click the button below to provide the addresses for the Geofence locations.</mutableString>
+                                <string key="text">As part of the Precision Medicine Sub-Study, this app will utilize location services data to identify when you leave and arrive at the following locations:   1)Home 2)Work  3)Primary Hospital outside of Weill   The use of mobile devices to track entry and exiting from specified locations is commonly referred to as "Geofencing", and will be used in this study to estimate time out of the house, time at work, time sedentary, unexpected hospitalizations and overall daily activity.  Click the button below to provide the addresses for the Geofence locations.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -443,114 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCE-NA-AKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4463.1999999999998" y="330.58470764617692"/>
-        </scene>
-        <!--Home View Controller-->
-        <scene sceneID="pLL-15-jgK">
-            <objects>
-                <viewController id="a51-RY-YSj" customClass="HomeViewController" customModule="PM_PRO_J" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sdl-K5-BDY"/>
-                        <viewControllerLayoutGuide type="bottom" id="s6E-ou-4Kp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nyZ-fV-bnu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p73-as-adY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SurveyCell" id="EAD-3N-Y0z" customClass="SurveyCell" customModule="PM_PRO_J" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EAD-3N-Y0z" id="s3j-3p-ivb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAo-NO-aII">
-                                                    <rect key="frame" x="256" y="11" width="82" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bl5-xz-deF">
-                                                    <rect key="frame" x="5" y="6" width="200" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="surveyButton" destination="Bl5-xz-deF" id="cVf-ki-Kii"/>
-                                            <outlet property="surveyDate" destination="lAo-NO-aII" id="CBI-9C-HiF"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="p73-as-adY" firstAttribute="leading" secondItem="nyZ-fV-bnu" secondAttribute="leading" id="1cy-LD-IjW"/>
-                            <constraint firstItem="p73-as-adY" firstAttribute="bottom" secondItem="s6E-ou-4Kp" secondAttribute="top" id="Cdf-zX-NX1"/>
-                            <constraint firstItem="p73-as-adY" firstAttribute="top" secondItem="Sdl-K5-BDY" secondAttribute="bottom" id="NgM-Dg-GGN"/>
-                            <constraint firstAttribute="trailing" secondItem="p73-as-adY" secondAttribute="trailing" id="i1L-Lc-Xi3"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="p73-as-adY" id="WYq-PF-NZt"/>
-                        <segue destination="r3m-AN-tMI" kind="show" identifier="settingsSegue" id="xeb-ml-xeo"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8rQ-eK-PKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6152.8000000000002" y="-376.46176911544228"/>
-        </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="Ole-0X-Jk7">
-            <objects>
-                <viewController id="r3m-AN-tMI" customClass="SettingsViewController" customModule="PM_PRO_J" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9Fc-V4-0RR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Se9-NY-um0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lcj-eR-wp9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd2-wE-ijf">
-                                <rect key="frame" x="90" y="162" width="194" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change Geofence Locations"/>
-                                <connections>
-                                    <action selector="geoChangeTapped:" destination="r3m-AN-tMI" eventType="touchUpInside" id="UNI-qR-yYR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60U-B5-1AI">
-                                <rect key="frame" x="112" y="218" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change Survey Times"/>
-                                <connections>
-                                    <action selector="timeChangeTapped:" destination="r3m-AN-tMI" eventType="touchUpInside" id="q2B-6J-9ap"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkN-6U-Qnf">
-                                <rect key="frame" x="157" y="274" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Out"/>
-                                <connections>
-                                    <action selector="signOutTapped:" destination="r3m-AN-tMI" eventType="touchUpInside" id="ePM-yy-ekj"/>
-                                    <segue destination="NJh-zE-mII" kind="show" identifier="signoutSegue" id="wJK-Xy-tDp"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LNh-ij-iPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7140" y="-376"/>
+            <point key="canvasLocation" x="3935" y="329"/>
         </scene>
         <!--Survey Times View Controller-->
         <scene sceneID="0DV-ot-gyX">
@@ -587,7 +391,7 @@
                                 <rect key="frame" x="0.0" y="205" width="375" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">As part of the Precision Medicine Sub-Study, you will be asked to take the following surveys:  1) "Standardized Survey":  A biweekly survey to monitor changes/updates in therapies, clinical care, and histories.  2) "Patient Reported Side-Effects Survey": A daily survey  to assess any side effects you may be feeling.  3) "Patient Reported Well-Being Survey": A weekly survey to assess your general well-being.  You will be notified via phone notifications when it is time to take one of these surveys.  You can set the preferred times for these notifications by clicking the button below. </mutableString>
+                                <string key="text">As part of the Precision Medicine Sub-Study, you will be asked to take the following surveys:  1) "Standardized Survey":  A biweekly survey to monitor changes/updates in therapies, clinical care, and histories.  2) "Patient Reported Side-Effects Survey": A daily survey  to assess any side effects you may be feeling.  3) "Patient Reported Well-Being Survey": A weekly survey to assess your general well-being.  You will be notified via phone notifications when it is time to take one of these surveys.  You can set the preferred times for these notifications by clicking the button below. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -602,63 +406,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <connections>
-                        <segue destination="a51-RY-YSj" kind="show" identifier="setSurveySegue" id="JAI-tL-jhR"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGQ-0I-lV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5344.8000000000002" y="328.78560719640183"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="vos-g6-rNT">
-            <objects>
-                <viewController id="Qsk-ha-cUd" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EIZ-Az-CYE"/>
-                        <viewControllerLayoutGuide type="bottom" id="fPN-R8-KLr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gyx-xT-PsL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CoU-sF-3Yt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkU-LL-ttT">
-                                        <rect key="frame" x="0.0" y="62" width="371" height="768"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">This is the mobile app for the "Research for Precision Medicine – Exploring Retrospective and Prospective 
-Patient-Generated Data in Precision Medicine Sub Study."
-
-The purpose of this study is to understand whether using a mobile health application to collect patient-centric data will help patients and physicians to check the accuracy of patients’ reporting, to better evaluate performance status, and to track changes in treatment and care. We aim to explore new methods for monitoring and measuring patients’ performance status, changes in clinical status and treatment across providers, and outcomes. These new methods include both prospective collection of Patient Reported Outcomes (PROs), deployed via mobile devices, and retrospective data collection deployed via patient-shared digital histories.
-
-The primary objective(s) of this study include:
-Performance status measures: Exploring whether and how to quantify a patient’s performance status observable in individual location and search/browser data; and to integrate those measures into prospective tools for patient reported outcomes and patient generated data. Correlation will be performed with physician reported patient performance status (ECOG/Karnofsky score) through clinical encounters or EMRs.   
-Patient reported care updates: Exploring effective methods for engaging patients in sharing updates in their clinical care, including any changes in their cancer treatment protocols, as well as treatment of other related or unrelated clinical conditions.
-
-The secondary objective(s) of this study include:
-Evaluating the willingness and ability of patients to share retrospective data with researchers through these methods.
-
-The exploratory objective(s) of this study include:
-Correlating genomic data with the comprehensive clinical data collected (e.g., treatment responses, toxicity, outcomes)
-
-</mutableString>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9dj-Ei-knA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2308" y="-1236.4317841079462"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Lfp-wx-xXK">
@@ -714,9 +465,6 @@ Correlating genomic data with the comprehensive clinical data collected (e.g., t
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="a51-RY-YSj" kind="show" id="Fon-nd-0sH"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WeillCornellLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1DS-MF-erD">
                                 <rect key="frame" x="8" y="72" width="145" height="66"/>
@@ -760,7 +508,7 @@ Correlating genomic data with the comprehensive clinical data collected (e.g., t
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="K6H-Kn-1Tw"/>
+                        <segue destination="9OM-aT-2K2" kind="relationship" relationship="rootViewController" id="lnm-hu-lNW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHR-bX-n26" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -773,8 +521,4 @@ Correlating genomic data with the comprehensive clinical data collected (e.g., t
         <image name="WeillCornellLogo" width="1023.75" height="368.25"/>
         <image name="bridge_bgrnd" width="604" height="461"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="tvj-Dh-Mpn"/>
-        <segue reference="JAI-tL-jhR"/>
-    </inferredMetricsTieBreakers>
 </document>

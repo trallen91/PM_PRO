@@ -40,7 +40,12 @@ extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
         
         
         if reason == .completed {
-          self.performSegue(withIdentifier: "setSurveySegue", sender: nil)
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let vc = storyboard.instantiateInitialViewController()
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.transition(toRootViewController: vc!, animated: true)
+            }
         }
     }
     

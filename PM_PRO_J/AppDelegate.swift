@@ -208,9 +208,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.transition(toRootViewController: vc!, animated: animated)
         }
         else {
-            let storyboard = UIStoryboard(name: "SignedOutStoryBoard", bundle: Bundle.main)
+            let storyboard = UIStoryboard(name: "IntroStoryBoard", bundle: Bundle.main)
             let vc = storyboard.instantiateInitialViewController()
-            print(vc)
             self.transition(toRootViewController: vc!, animated: animated)
         }
         

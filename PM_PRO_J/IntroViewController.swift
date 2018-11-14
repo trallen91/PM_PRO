@@ -11,7 +11,7 @@ import ResearchSuiteTaskBuilder
 import LS2SDK
 import ResearchSuiteAppFramework
 
-class ViewController: UIViewController {
+class IntroViewController: UIViewController {
 
 
     override func viewDidLoad() {
@@ -25,9 +25,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func learnMore(_ sender: UIButton) {
-        self.launchLogin()
+        
     }
-    @IBAction func joinStudy(_ sender: UIButton) {
+    
+    @IBAction func login(_ sender: UIButton) {
+        self.launchLogin()
     }
     
     func launchLogin(){
@@ -46,12 +48,21 @@ class ViewController: UIViewController {
             self?.dismiss(animated: true, completion: {
                 
                 if error == nil {
+                    //I'D LIKE TO DO A CHECK BASED ON WHETHER OR NOT THE USER IS
+                    //IF USER IS NOT ONBOARDED YET:
                     DispatchQueue.main.async {
-                        let storyboard = UIStoryboard(name: "Onboarding", bundle: Bundle.main)
+                        let storyboard = UIStoryboard(name: "OnboardingSB", bundle: Bundle.main)
                         let vc = storyboard.instantiateInitialViewController()
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         appDelegate.transition(toRootViewController: vc!, animated: true)
                     }
+                    //ELSE (THEY ARE ONBOARDED), GO STRAIGHT HOME
+//                    DispatchQueue.main.async {
+//                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//                        let vc = storyboard.instantiateInitialViewController()
+//                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                        appDelegate.transition(toRootViewController: vc!, animated: true)
+//                    }
                 }
                 else {
                     NSLog(String(describing:error))

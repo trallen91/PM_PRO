@@ -11,11 +11,13 @@
 		E465E8BF0A9519A6DB6CDFFF /* Pods_PM_PRO_J.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184BC4654835108D81911255 /* Pods_PM_PRO_J.framework */; };
 		F8A07856219B9A9F00469C89 /* LS2Client.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8A07855219B9A9F00469C89 /* LS2Client.plist */; };
 		F8A07858219BA73A00469C89 /* RSStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A07857219BA73A00469C89 /* RSStore.swift */; };
-		F8A0785A219CAB3300469C89 /* SignedOutStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A07859219CAB3300469C89 /* SignedOutStoryBoard.storyboard */; };
+		F8A0785A219CAB3300469C89 /* IntroStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A07859219CAB3300469C89 /* IntroStoryBoard.storyboard */; };
 		F8A0785C219CB05500469C89 /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0785B219CB05500469C89 /* login.json */; };
+		F8A0785F219CD2F200469C89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A0785E219CD2F200469C89 /* Main.storyboard */; };
+		F8A07861219CE39A00469C89 /* notifcation_setter.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A07860219CE39A00469C89 /* notifcation_setter.json */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
-		F8C758B3217121CC00E590AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* ViewController.swift */; };
-		F8C758B6217121CC00E590AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* Main.storyboard */; };
+		F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* IntroViewController.swift */; };
+		F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */; };
 		F8C758B8217121CD00E590AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B7217121CD00E590AD /* Assets.xcassets */; };
 		F8C758BB217121CD00E590AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B9217121CD00E590AD /* LaunchScreen.storyboard */; };
 		F8C758C6217121CD00E590AD /* PM_PRO_JTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758C5217121CD00E590AD /* PM_PRO_JTests.swift */; };
@@ -76,12 +78,14 @@
 		E845A54E973A81D37A8DC5CA /* Pods_PM_PRO_JUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PM_PRO_JUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A07855219B9A9F00469C89 /* LS2Client.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = LS2Client.plist; path = "../../ResearchSuite-Demo-iOS/YADL Reference App/LS2Client.plist"; sourceTree = "<group>"; };
 		F8A07857219BA73A00469C89 /* RSStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSStore.swift; sourceTree = "<group>"; };
-		F8A07859219CAB3300469C89 /* SignedOutStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignedOutStoryBoard.storyboard; sourceTree = "<group>"; };
+		F8A07859219CAB3300469C89 /* IntroStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IntroStoryBoard.storyboard; sourceTree = "<group>"; };
 		F8A0785B219CB05500469C89 /* login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
+		F8A0785E219CD2F200469C89 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F8A07860219CE39A00469C89 /* notifcation_setter.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = notifcation_setter.json; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8C758B2217121CC00E590AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F8C758B5217121CC00E590AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8C758B2217121CC00E590AD /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		F8C758B5217121CC00E590AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OnboardingSB.storyboard; sourceTree = "<group>"; };
 		F8C758B7217121CD00E590AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8C758BA217121CD00E590AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8C758BC217121CD00E590AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -200,8 +204,8 @@
 				F8EEB2482171303400612D84 /* LocationManager.swift */,
 				F8EEB24621712ED200612D84 /* Store.swift */,
 				F8C758B0217121CC00E590AD /* AppDelegate.swift */,
-				F8C758B2217121CC00E590AD /* ViewController.swift */,
-				F8C758B4217121CC00E590AD /* Main.storyboard */,
+				F8C758B2217121CC00E590AD /* IntroViewController.swift */,
+				F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */,
 				F8C758B7217121CD00E590AD /* Assets.xcassets */,
 				F8C758B9217121CD00E590AD /* LaunchScreen.storyboard */,
 				F8C758BC217121CD00E590AD /* Info.plist */,
@@ -225,8 +229,10 @@
 				F8EEB2762184D93100612D84 /* ORKStepNavigationRule.swift */,
 				F8EEB278219790D500612D84 /* LS2Store.swift */,
 				F8A07857219BA73A00469C89 /* RSStore.swift */,
-				F8A07859219CAB3300469C89 /* SignedOutStoryBoard.storyboard */,
+				F8A07859219CAB3300469C89 /* IntroStoryBoard.storyboard */,
 				F8A0785B219CB05500469C89 /* login.json */,
+				F8A0785E219CD2F200469C89 /* Main.storyboard */,
+				F8A07860219CE39A00469C89 /* notifcation_setter.json */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -357,11 +363,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8A0785A219CAB3300469C89 /* SignedOutStoryBoard.storyboard in Resources */,
+				F8A0785A219CAB3300469C89 /* IntroStoryBoard.storyboard in Resources */,
 				F8C758BB217121CD00E590AD /* LaunchScreen.storyboard in Resources */,
+				F8A0785F219CD2F200469C89 /* Main.storyboard in Resources */,
+				F8A07861219CE39A00469C89 /* notifcation_setter.json in Resources */,
 				F8A07856219B9A9F00469C89 /* LS2Client.plist in Resources */,
 				F8C758B8217121CD00E590AD /* Assets.xcassets in Resources */,
-				F8C758B6217121CC00E590AD /* Main.storyboard in Resources */,
+				F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */,
 				F8A0785C219CB05500469C89 /* login.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,7 +537,7 @@
 				F8EEB24F217188BB00612D84 /* ConsentTask.swift in Sources */,
 				F8EEB24D217188BB00612D84 /* SurveyTask.swift in Sources */,
 				F8EEB263217CEC8C00612D84 /* surveyTimesViewController.swift in Sources */,
-				F8C758B3217121CC00E590AD /* ViewController.swift in Sources */,
+				F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */,
 				F8EEB265217CF01900612D84 /* SetSurveyTimeTask.swift in Sources */,
 				F8EEB26F217E838B00612D84 /* EligibilityTask.swift in Sources */,
 				F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */,
@@ -568,12 +576,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F8C758B4217121CC00E590AD /* Main.storyboard */ = {
+		F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F8C758B5217121CC00E590AD /* Base */,
 			);
-			name = Main.storyboard;
+			name = OnboardingSB.storyboard;
 			sourceTree = "<group>";
 		};
 		F8C758B9217121CD00E590AD /* LaunchScreen.storyboard */ = {
