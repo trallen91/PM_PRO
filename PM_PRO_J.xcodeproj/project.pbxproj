@@ -10,6 +10,9 @@
 		74CD7866C2181896DDFC89DD /* Pods_PM_PRO_JTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C442950B49506ABB074857 /* Pods_PM_PRO_JTests.framework */; };
 		E465E8BF0A9519A6DB6CDFFF /* Pods_PM_PRO_J.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184BC4654835108D81911255 /* Pods_PM_PRO_J.framework */; };
 		F8A07856219B9A9F00469C89 /* LS2Client.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8A07855219B9A9F00469C89 /* LS2Client.plist */; };
+		F8A07858219BA73A00469C89 /* RSStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A07857219BA73A00469C89 /* RSStore.swift */; };
+		F8A0785A219CAB3300469C89 /* SignedOutStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A07859219CAB3300469C89 /* SignedOutStoryBoard.storyboard */; };
+		F8A0785C219CB05500469C89 /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0785B219CB05500469C89 /* login.json */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
 		F8C758B3217121CC00E590AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* ViewController.swift */; };
 		F8C758B6217121CC00E590AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* Main.storyboard */; };
@@ -72,6 +75,9 @@
 		C4A9E6EFCD22367D4A3AF173 /* Pods-PM_PRO_JTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM_PRO_JTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PM_PRO_JTests/Pods-PM_PRO_JTests.release.xcconfig"; sourceTree = "<group>"; };
 		E845A54E973A81D37A8DC5CA /* Pods_PM_PRO_JUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PM_PRO_JUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A07855219B9A9F00469C89 /* LS2Client.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = LS2Client.plist; path = "../../ResearchSuite-Demo-iOS/YADL Reference App/LS2Client.plist"; sourceTree = "<group>"; };
+		F8A07857219BA73A00469C89 /* RSStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSStore.swift; sourceTree = "<group>"; };
+		F8A07859219CAB3300469C89 /* SignedOutStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignedOutStoryBoard.storyboard; sourceTree = "<group>"; };
+		F8A0785B219CB05500469C89 /* login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C758B2217121CC00E590AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +224,9 @@
 				F8EEB2742184BCD000612D84 /* SideEffectSurveyTask.swift */,
 				F8EEB2762184D93100612D84 /* ORKStepNavigationRule.swift */,
 				F8EEB278219790D500612D84 /* LS2Store.swift */,
+				F8A07857219BA73A00469C89 /* RSStore.swift */,
+				F8A07859219CAB3300469C89 /* SignedOutStoryBoard.storyboard */,
+				F8A0785B219CB05500469C89 /* login.json */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -348,10 +357,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A0785A219CAB3300469C89 /* SignedOutStoryBoard.storyboard in Resources */,
 				F8C758BB217121CD00E590AD /* LaunchScreen.storyboard in Resources */,
 				F8A07856219B9A9F00469C89 /* LS2Client.plist in Resources */,
 				F8C758B8217121CD00E590AD /* Assets.xcassets in Resources */,
 				F8C758B6217121CC00E590AD /* Main.storyboard in Resources */,
+				F8A0785C219CB05500469C89 /* login.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,11 +396,14 @@
 				"${BUILT_PRODUCTS_DIR}/GRMustache.swift/Mustache.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/LS2SDK/LS2SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ResearchSuiteAppFramework/ResearchSuiteAppFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchSuiteExtensions/ResearchSuiteExtensions.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchSuiteResultsProcessor/ResearchSuiteResultsProcessor.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchSuiteTaskBuilder/ResearchSuiteTaskBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/SecureQueue/SecureQueue.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyMarkdown/SwiftyMarkdown.framework",
 				"${BUILT_PRODUCTS_DIR}/sdlrkx/sdlrkx.framework",
@@ -402,11 +416,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mustache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LS2SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchSuiteAppFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchSuiteExtensions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchSuiteResultsProcessor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchSuiteTaskBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SecureQueue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMarkdown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sdlrkx.framework",
@@ -500,6 +517,7 @@
 				F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */,
 				F8EEB26D217E809900612D84 /* EligibilityViewController.swift in Sources */,
 				F8EEB2772184D93200612D84 /* ORKStepNavigationRule.swift in Sources */,
+				F8A07858219BA73A00469C89 /* RSStore.swift in Sources */,
 				F8EEB279219790D500612D84 /* LS2Store.swift in Sources */,
 				F8EEB25B217A578000612D84 /* ConsentViewController.swift in Sources */,
 				F8EEB25D217BC05200612D84 /* RegistrationViewController.swift in Sources */,

@@ -5,8 +5,11 @@
 //  Created by Travis Allen on 10/5/18.
 //  Copyright © 2018 Travis Allen. All rights reserved.
 //
-import ResearchKit
 import UIKit
+import ResearchKit
+import ResearchSuiteTaskBuilder
+import LS2SDK
+import ResearchSuiteAppFramework
 
 class ViewController: UIViewController {
 
@@ -22,37 +25,50 @@ class ViewController: UIViewController {
     }
 
     @IBAction func learnMore(_ sender: UIButton) {
-        
+        self.launchLogin()
     }
     @IBAction func joinStudy(_ sender: UIButton) {
     }
-
-    @IBAction func hitBackEnd(_ sender: UIButton) {
-        // stolen from https://dzone.com/articles/how-to-start-building-a-backend-for-your-ios-app-w
-        let json = ["user":"larry"]
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-            let url = NSURL(string: "http://127.0.0.1:5000/api/get_messages")!
-            let request = NSMutableURLRequest(url: url as URL)
-            request.httpMethod = "POST"
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            request.httpBody = jsonData
-            let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
-                if error != nil{
-                    print("Error -> \(error)")
-                    return
-                }
-                do {
-                    let result = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
-                    print("Result -> \(result)")
-                } catch {
-                    print("Error -> \(error)")
-                }
-            }
-            task.resume()
-        } catch {
-            print(error)
+    
+    func launchLogin(){
+        
+        guard let signInActivity = AppDelegate.loadScheduleItem(filename: "login.json"),
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+            let steps = appDelegate.taskBuilder.steps(forElement: signInActivity.activity as JsonElement) else {
+                return
         }
+        
+        let task = ORKOrderedTask(identifier: signInActivity.identifier, steps: steps)
+        
+        let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
+            
+            //when done, tell the app delegate to go back to the correct screen
+            self?.dismiss(animated: true, completion: {
+                
+                if error == nil {
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Onboarding", bundle: Bundle.main)
+                        let vc = storyboard.instantiateInitialViewController()
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.transition(toRootViewController: vc!, animated: true)
+                    }
+                }
+                else {
+                    NSLog(String(describing:error))
+                }
+                
+            })
+            
+        }
+        
+        let tvc = RSAFTaskViewController(
+            activityUUID: UUID(),
+            task: task,
+            taskFinishedHandler: taskFinishedHandler
+        )
+        
+        self.present(tvc, animated: true, completion: nil)
+        
     }
 }
 

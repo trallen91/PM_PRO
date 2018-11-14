@@ -9,13 +9,15 @@ target 'PM_PRO_J' do
   source 'https://github.com/CocoaPods/Specs.git’
 
   # Pods for PM_PRO_J
-
-  pod 'LS2SDK', '~> 0.10’
-  pod "ResearchKit", '~> 1.5’
-  pod “sdlrkx"
-  pod "ResearchSuiteTaskBuilder", '~> 0.12’
+  pod "ResearchSuiteExtensions", '~> 0.20'
   pod "ResearchSuiteResultsProcessor", '~> 0.9’
-  pod "ResearchSuiteExtensions", '~> 0.17’
+  pod 'LS2SDK', '~> 0.11'
+  
+  pod "sdlrkx"
+  pod "ResearchKit", '~> 1.5’
+  pod "ResearchSuiteTaskBuilder", '~> 0.13'
+
+  pod "ResearchSuiteAppFramework", :git => 'https://github.com/ResearchSuite/ResearchSuiteAppFramework-iOS', :branch => 'reduction'
 
   target 'PM_PRO_JTests' do
     inherit! :search_paths
