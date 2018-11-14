@@ -44,31 +44,43 @@ class IntroViewController: UIViewController {
         
         let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
             
-            //when done, tell the app delegate to go back to the correct screen
-            self?.dismiss(animated: true, completion: {
-                
-                if error == nil {
-                    //I'D LIKE TO DO A CHECK BASED ON WHETHER OR NOT THE USER IS
-                    //IF USER IS NOT ONBOARDED YET:
-                    DispatchQueue.main.async {
-                        let storyboard = UIStoryboard(name: "OnboardingSB", bundle: Bundle.main)
-                        let vc = storyboard.instantiateInitialViewController()
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.transition(toRootViewController: vc!, animated: true)
+            print(error)
+            if (reason == .completed) {
+                self?.dismiss(animated: true, completion: {
+                    //when done, tell the app delegate to go back to the correct screen
+                    if error == nil {
+                        //I'D LIKE TO DO A CHECK BASED ON WHETHER OR NOT THE USER IS
+                        //IF USER IS NOT ONBOARDED YET:
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "OnboardingSB", bundle: Bundle.main)
+                            let vc = storyboard.instantiateInitialViewController()
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.transition(toRootViewController: vc!, animated: true)
+                        }
+                        //ELSE (THEY ARE ONBOARDED), GO STRAIGHT HOME
+                        //                    DispatchQueue.main.async {
+                        //                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                        //                        let vc = storyboard.instantiateInitialViewController()
+                        //                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        //                        appDelegate.transition(toRootViewController: vc!, animated: true)
+                        //                    }
                     }
-                    //ELSE (THEY ARE ONBOARDED), GO STRAIGHT HOME
-//                    DispatchQueue.main.async {
-//                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//                        let vc = storyboard.instantiateInitialViewController()
-//                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                        appDelegate.transition(toRootViewController: vc!, animated: true)
-//                    }
+                    else {
+                        NSLog(String(describing:error))
+                    }
+                    
+                })
+            }
+            else {
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "IntroStoryBoard", bundle: Bundle.main)
+                    let vc = storyboard.instantiateInitialViewController()
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.transition(toRootViewController: vc!, animated: true)
                 }
-                else {
-                    NSLog(String(describing:error))
-                }
-                
-            })
+            }
+            
+
             
         }
         
