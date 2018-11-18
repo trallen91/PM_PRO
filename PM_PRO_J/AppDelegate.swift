@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         self.store = RSStore()
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
-        self.store.set(value: true as NSSecureCoding, key: "shouldDoNotif")
+//        self.store.set(value: false as NSSecureCoding, key: "isEligible")
         
         self.taskBuilder = RSTBTaskBuilder(
             stateHelper: self.store,

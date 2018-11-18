@@ -20,6 +20,12 @@ class EligibilityViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Eligibility"
+        self.store = RSStore()
+        let isEligible = self.store.valueInState(forKey: "isEligible") as! Bool
+
+        if(isEligible){
+            self.performSegue(withIdentifier: "isEligibleSegue", sender: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,6 +89,7 @@ class EligibilityViewController: UIViewController {
 
                     if (allYes) {
                         print("Is Eligible")
+                        self?.store.set(value: true as NSSecureCoding, key: "isEligible")
                         self?.performSegue(withIdentifier: "isEligibleSegue", sender: nil)
                     }
                     else {
