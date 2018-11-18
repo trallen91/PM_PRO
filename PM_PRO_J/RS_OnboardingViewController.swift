@@ -14,7 +14,7 @@ import UserNotifications
 import ResearchSuiteAppFramework
 
 
-class OnboardingViewController: UIViewController {
+class RsOnboardingViewController: UIViewController {
     
     let kActivityIdentifiers = "activity_identifiers"
     

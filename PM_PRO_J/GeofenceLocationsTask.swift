@@ -11,16 +11,20 @@ public var GeofenceLocationsTask: ORKOrderedTask {
     let homeAddress = ORKQuestionStep(identifier: "homeAddress")
     homeAddress.title = "Please enter your home address"
     homeAddress.answerFormat = ORKLocationAnswerFormat()
+    homeAddress.isOptional = false
     steps += [homeAddress]
     
     let workAddress = ORKQuestionStep(identifier: "workAddress")
     workAddress.title = "Please enter your work address"
     workAddress.answerFormat = ORKLocationAnswerFormat()
+    homeAddress.isOptional = false
     steps += [workAddress]
     
     let hospitalAddress = ORKQuestionStep(identifier: "hospitalAddress")
     hospitalAddress.title = "Please enter address of your primary hospital outside of Weill Cornell"
     hospitalAddress.answerFormat = ORKLocationAnswerFormat()
+    homeAddress.isOptional = false
+    
     steps += [hospitalAddress]
     
     return ORKOrderedTask(identifier: "GeofenceLocationsTask", steps: steps)

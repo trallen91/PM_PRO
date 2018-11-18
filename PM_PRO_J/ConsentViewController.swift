@@ -11,11 +11,19 @@ import ResearchKit
 import UIKit
 
 class ConsentViewController: UIViewController {
-    
+    var store: RSStore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        var isConsented : Bool = false
+//        self.store = RSStore()
+//        if (self.store.valueInState(forKey: "isConsented") != nil) {
+//            isConsented = self.store.valueInState(forKey: "isConsented") as! Bool
+//        }
+//        if(isConsented){
+//            self.performSegue(withIdentifier: "consentCompleteSegue", sender: nil)
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +44,7 @@ extension ConsentViewController : ORKTaskViewControllerDelegate {
         //Handle results with taskViewController.result
         
         if reason == .completed {
+            self.store.set(value: true as NSSecureCoding, key: "isConsented")
             self.performSegue(withIdentifier: "consentCompleteSegue", sender: nil)
         }
         taskViewController.dismiss(animated: true, completion: nil)

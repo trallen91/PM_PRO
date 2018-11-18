@@ -17,6 +17,7 @@
 		F8A07861219CE39A00469C89 /* notifcation_setter.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A07860219CE39A00469C89 /* notifcation_setter.json */; };
 		F8A0786321A0771900469C89 /* eligibility.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0786221A0771900469C89 /* eligibility.json */; };
 		F8A0786521A1B27900469C89 /* RS_OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0786421A1B27900469C89 /* RS_OnboardingViewController.swift */; };
+		F8A0786721A208A800469C89 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0786621A208A800469C89 /* OnboardingViewController.swift */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
 		F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* IntroViewController.swift */; };
 		F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */; };
@@ -86,6 +87,7 @@
 		F8A07860219CE39A00469C89 /* notifcation_setter.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = notifcation_setter.json; sourceTree = "<group>"; };
 		F8A0786221A0771900469C89 /* eligibility.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = eligibility.json; sourceTree = "<group>"; };
 		F8A0786421A1B27900469C89 /* RS_OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_OnboardingViewController.swift; sourceTree = "<group>"; };
+		F8A0786621A208A800469C89 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C758B2217121CC00E590AD /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				F8A07860219CE39A00469C89 /* notifcation_setter.json */,
 				F8A0786221A0771900469C89 /* eligibility.json */,
 				F8A0786421A1B27900469C89 /* RS_OnboardingViewController.swift */,
+				F8A0786621A208A800469C89 /* OnboardingViewController.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				F8EEB2772184D93200612D84 /* ORKStepNavigationRule.swift in Sources */,
 				F8A07858219BA73A00469C89 /* RSStore.swift in Sources */,
 				F8EEB279219790D500612D84 /* LS2Store.swift in Sources */,
+				F8A0786721A208A800469C89 /* OnboardingViewController.swift in Sources */,
 				F8EEB25B217A578000612D84 /* ConsentViewController.swift in Sources */,
 				F8EEB25D217BC05200612D84 /* RegistrationViewController.swift in Sources */,
 				F8EEB271217FF65100612D84 /* StandardSurveyTask.swift in Sources */,

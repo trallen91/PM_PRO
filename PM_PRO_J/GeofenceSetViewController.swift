@@ -11,11 +11,13 @@ import ResearchKit
 import UIKit
 
 class GeofenceSetViewController: UIViewController {
+    var store: RSStore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Enter Locations"
+        self.store = RSStore()
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,6 +72,7 @@ extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
         }
         
         if reason == .completed {
+            self.store.set(value: true as NSSecureCoding, key: "hasSetGeofence")
             self.performSegue(withIdentifier: "firstSetTimeSegue", sender: nil)
         }
         
