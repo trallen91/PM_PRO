@@ -7,8 +7,14 @@
 //
 import UIKit
 import ResearchKit
+import ResearchSuiteTaskBuilder
+import ResearchSuiteAppFramework
 
 class EligibilityViewController: UIViewController {
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    var eligibilityAssessmentItem: RSAFScheduleItem!
+    var store: RSStore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,51 +26,101 @@ class EligibilityViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func checkEligTapped(_ sender: UIButton) {
-        let taskViewController = ORKTaskViewController(task: EligibilityTask, taskRun: nil)
-        taskViewController.delegate = self
-        present(taskViewController, animated: true, completion: nil)
+    //back when I was doing it without the Results Processor
+//    @IBAction func checkEligTapped(_ sender: UIButton) {
+////        let taskViewController = ORKTaskViewController(task: EligibilityTask, taskRun: nil)
+////        taskViewController.delegate = self
+////        present(taskViewController, animated: true, completion: nil)
+//
+//
+//    }
+    
+    @IBAction func checkEligibilityTapped(_ sender: UIButton) {
+        self.eligibilityAssessmentItem = AppDelegate.loadScheduleItem(filename:"eligibility.json")
+        self.launchActivity(forItem: (self.eligibilityAssessmentItem)!)
+    }
+    func launchActivity(forItem item: RSAFScheduleItem) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+            let steps = appDelegate.taskBuilder.steps(forElement: item.activity as JsonElement) else {
+                return
+        }
+        
+        let task = ORKOrderedTask(identifier: item.identifier, steps: steps)
+        
+        
+          let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
+            
+             if reason == ORKTaskViewControllerFinishReason.completed {
+                let taskResult = taskViewController.result
+                print(taskResult)
+                print(item.resultTransforms)
+                appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
+                
+//                var allYes : Bool = true
+                
+                
+                
+                self?.dismiss(animated: true, completion: {
+
+                    print("Next Step is Main!!!")
+                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    let vc = storyboard.instantiateInitialViewController()
+                    appDelegate.transition(toRootViewController: vc!, animated: true)
+                    
+                })
+            }
+        }
+        
+        let tvc = RSAFTaskViewController(
+            activityUUID: UUID(),
+            task: task,
+            taskFinishedHandler: taskFinishedHandler
+        )
+        
+        self.present(tvc, animated: true, completion: nil)
     }
 }
 
-extension EligibilityViewController : ORKTaskViewControllerDelegate {
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        
-        
-        
-        taskViewController.dismiss(animated: true, completion: nil)
-        
-        if reason == .completed {
-            var allYes : Bool = true
-            
-            let taskResult = taskViewController.result.results
-            
-            for stepResults in taskResult! as! [ORKStepResult]
-            {
-                for result in stepResults.results!
-                {
-                    print(result.identifier)
-                    let eligAnswerResult = result as! ORKBooleanQuestionResult
-                    let answer = eligAnswerResult.booleanAnswer!
-                    
-                    print(answer)
-                    
-                    if answer == 0 {
-                        allYes = false
-                    }
-                    
-                }
-            }
-            print("Eligibility Complete")
-            if (allYes) {
-                print("Is Eligible")
-                self.performSegue(withIdentifier: "isEligibleSegue", sender: nil)
-            }
-            else {
-                print("Is Ineligible")
-                self.performSegue(withIdentifier: "isIneligibleSegue", sender: nil)
-            }
-        }
-    }
-    
-}
+//extension EligibilityViewController : ORKTaskViewControllerDelegate {
+//    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+//
+//
+//
+//        taskViewController.dismiss(animated: true, completion: nil)
+//
+//        if reason == .completed {
+//            var allYes : Bool = true
+//
+//            let taskResult = taskViewController.result
+//
+//            let taskResultS = taskViewController.result.results
+//
+//            for stepResults in taskResultS! as! [ORKStepResult]
+//            {
+//                for result in stepResults.results!
+//                {
+//                    print(result.identifier)
+//                    let eligAnswerResult = result as! ORKBooleanQuestionResult
+//                    let answer = eligAnswerResult.booleanAnswer!
+//
+//                    print(answer)
+//
+//                    if answer == 0 {
+//                        allYes = false
+//                    }
+//
+//                }
+//            }
+//            print("Eligibility Complete")
+//            if (allYes) {
+//                print("Is Eligible")
+//                self.performSegue(withIdentifier: "isEligibleSegue", sender: nil)
+//            }
+//            else {
+//                print("Is Ineligible")
+//                self.performSegue(withIdentifier: "isIneligibleSegue", sender: nil)
+//            }
+//        }
+//    }
+//
+//}

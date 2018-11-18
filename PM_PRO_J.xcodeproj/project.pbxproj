@@ -15,6 +15,8 @@
 		F8A0785C219CB05500469C89 /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0785B219CB05500469C89 /* login.json */; };
 		F8A0785F219CD2F200469C89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A0785E219CD2F200469C89 /* Main.storyboard */; };
 		F8A07861219CE39A00469C89 /* notifcation_setter.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A07860219CE39A00469C89 /* notifcation_setter.json */; };
+		F8A0786321A0771900469C89 /* eligibility.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0786221A0771900469C89 /* eligibility.json */; };
+		F8A0786521A1B27900469C89 /* RS_OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0786421A1B27900469C89 /* RS_OnboardingViewController.swift */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
 		F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* IntroViewController.swift */; };
 		F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */; };
@@ -82,6 +84,8 @@
 		F8A0785B219CB05500469C89 /* login.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
 		F8A0785E219CD2F200469C89 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F8A07860219CE39A00469C89 /* notifcation_setter.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = notifcation_setter.json; sourceTree = "<group>"; };
+		F8A0786221A0771900469C89 /* eligibility.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = eligibility.json; sourceTree = "<group>"; };
+		F8A0786421A1B27900469C89 /* RS_OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_OnboardingViewController.swift; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C758B2217121CC00E590AD /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				F8A0785B219CB05500469C89 /* login.json */,
 				F8A0785E219CD2F200469C89 /* Main.storyboard */,
 				F8A07860219CE39A00469C89 /* notifcation_setter.json */,
+				F8A0786221A0771900469C89 /* eligibility.json */,
+				F8A0786421A1B27900469C89 /* RS_OnboardingViewController.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A0786321A0771900469C89 /* eligibility.json in Resources */,
 				F8A0785A219CAB3300469C89 /* IntroStoryBoard.storyboard in Resources */,
 				F8C758BB217121CD00E590AD /* LaunchScreen.storyboard in Resources */,
 				F8A0785F219CD2F200469C89 /* Main.storyboard in Resources */,
@@ -540,6 +547,7 @@
 				F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */,
 				F8EEB265217CF01900612D84 /* SetSurveyTimeTask.swift in Sources */,
 				F8EEB26F217E838B00612D84 /* EligibilityTask.swift in Sources */,
+				F8A0786521A1B27900469C89 /* RS_OnboardingViewController.swift in Sources */,
 				F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,123 @@
+{
+    "type": "recurring",
+    "identifier": "eligibility",
+    "title": "Eligibility",
+    "guid": "eligibility",
+    "activity": {
+        "type": "elementList",
+        "identifier": "eligibility_list",
+        "elements": [
+            {
+                "identifier": "crit1",
+                "type": "singleChoiceText",
+                "text": "You are 18 Years or Older.",
+                "items": [
+                    {
+                        "prompt": "Yes",
+                        "value": "Yes"
+                    },
+                    {
+                        "prompt": "No",
+                        "value": "No"
+                    }
+                ]
+            },
+            {
+                "identifier": "crit2",
+                "type": "singleChoiceText",
+                "text": "You have had an Android or iPhone device for at least one year prior to enrolling in the study.",
+                "items": [
+                    {
+                        "prompt": "Yes",
+                        "value": "Yes"
+                    },
+                    {
+                        "prompt": "No",
+                        "value": "No"
+                    }
+                ]
+            },
+            {
+                "identifier": "crit3",
+                "type": "singleChoiceText",
+                "text": "You have a Google account that is actively in use.",
+                "items": [
+                    {
+                        "prompt": "Yes",
+                        "value": "Yes"
+                    },
+                    {
+                        "prompt": "No",
+                        "value": "No"
+                    }
+                ]
+            },
+            {
+                "identifier": "crit4",
+                "type": "singleChoiceText",
+                "text": "You spend time searching and browsing web on a weekly basis.",
+                "items": [
+                    {
+                        "prompt": "Yes",
+                        "value": "Yes"
+                    },
+                    {
+                        "prompt": "No",
+                        "value": "No"
+                    }
+                ]
+            },
+            {
+                "identifier": "crit5",
+                "type": "singleChoiceText",
+                "text": "You spend time out of the house each day when feeling well (i.e. not largely home-bound).",
+                "items": [
+                    {
+                        "prompt": "Yes",
+                        "value": "Yes"
+                    },
+                    {
+                        "prompt": "No",
+                        "value": "No"
+                    }
+                ]
+            }
+        ]
+    },
+    "resultTransforms": [
+        {
+            "identifier":"auto",
+            "transform":"auto",
+            "inputMapping":[
+                {
+                    "parameter":"schema",
+                    "constant":{
+                        "namespace":"Cornell",
+                        "name":"rs-survey",
+                        "version":"1.0.0"
+                    }
+                },
+                {
+                    "stepIdentifierRegex":"crit1",
+                    "parameter":"crit1Result"
+                },
+                {
+                    "stepIdentifierRegex":"crit2",
+                    "parameter":"crit2Result"
+                },
+                {
+                    "stepIdentifierRegex":"crit3",
+                    "parameter":"crit3Result"
+                },
+                {
+                    "stepIdentifierRegex":"crit4",
+                    "parameter":"crit4Result"
+                },
+                {
+                    "stepIdentifierRegex":"crit5",
+                    "parameter":"crit5Result"
+                }
+            ]
+        }
+    ]
+}
