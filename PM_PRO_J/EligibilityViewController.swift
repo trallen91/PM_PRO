@@ -39,6 +39,7 @@ class EligibilityViewController: UIViewController {
         self.eligibilityAssessmentItem = AppDelegate.loadScheduleItem(filename:"eligibility.json")
         self.launchActivity(forItem: (self.eligibilityAssessmentItem)!)
     }
+    
     func launchActivity(forItem item: RSAFScheduleItem) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
             let steps = appDelegate.taskBuilder.steps(forElement: item.activity as JsonElement) else {
@@ -52,21 +53,43 @@ class EligibilityViewController: UIViewController {
             
              if reason == ORKTaskViewControllerFinishReason.completed {
                 let taskResult = taskViewController.result
-                print(taskResult)
-                print(item.resultTransforms)
+
                 appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
                 
-//                var allYes : Bool = true
+                var allYes : Bool = true
                 
+                let taskResultS = taskResult.results
                 
-                
+                for stepResults in taskResultS! as! [ORKStepResult]
+                {
+                    for result in stepResults.results!
+                    {
+                        print(result.identifier)
+                        let eligAnswerResult = result as! ORKChoiceQuestionResult
+                        let single_answer_arr = eligAnswerResult.answer as! NSArray
+                        
+                        let answer = single_answer_arr[0] as! NSString
+    
+                        print(answer)
+    
+                        if answer == "No" {
+                            allYes = false
+                        }
+    
+                    }
+                }
+
                 self?.dismiss(animated: true, completion: {
 
-                    print("Next Step is Main!!!")
-                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                    let vc = storyboard.instantiateInitialViewController()
-                    appDelegate.transition(toRootViewController: vc!, animated: true)
-                    
+                    if (allYes) {
+                        print("Is Eligible")
+                        self?.performSegue(withIdentifier: "isEligibleSegue", sender: nil)
+                    }
+                    else {
+                        print("Is Ineligible")
+                        self?.performSegue(withIdentifier: "isIneligibleSegue", sender: nil)
+                    }
+
                 })
             }
         }
