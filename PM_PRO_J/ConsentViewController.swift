@@ -17,14 +17,16 @@ class ConsentViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        var isConsented : Bool = false
-//        self.store = RSStore()
+        self.store = RSStore()
 //        if (self.store.valueInState(forKey: "isConsented") != nil) {
 //            isConsented = self.store.valueInState(forKey: "isConsented") as! Bool
 //        }
 //        if(isConsented){
 //            self.performSegue(withIdentifier: "consentCompleteSegue", sender: nil)
 //        }
+    
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

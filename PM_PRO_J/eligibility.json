@@ -11,6 +11,7 @@
                 "identifier": "crit1",
                 "type": "singleChoiceText",
                 "text": "You are 18 Years or Older.",
+                "optional": "false",
                 "items": [
                     {
                         "prompt": "Yes",

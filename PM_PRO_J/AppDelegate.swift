@@ -115,7 +115,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         self.store = RSStore()
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
-//        self.store.set(value: false as NSSecureCoding, key: "isEligible")
         
         self.taskBuilder = RSTBTaskBuilder(
             stateHelper: self.store,
@@ -203,7 +202,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     open func showViewController(animated: Bool) {
         
         if(signedIn()){
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let storyboard = UIStoryboard(name: "OnboardingSB", bundle: Bundle.main)
             let vc = storyboard.instantiateInitialViewController()
             self.transition(toRootViewController: vc!, animated: animated)
         }
