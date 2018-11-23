@@ -32,7 +32,7 @@ class SurveyTimesViewController: UIViewController {
         present(taskViewController, animated: true, completion: nil)
     }
     
-    func setNotification(resultAnswer: DateComponents) {
+    func setNotification(resultAnswer: DateComponents, surveyName: String) {
         
         var userCalendar = Calendar.current
         userCalendar.timeZone = TimeZone(abbreviation: "EDT")!
@@ -41,18 +41,35 @@ class SurveyTimesViewController: UIViewController {
         
         let hour = resultAnswer.hour
         let minutes = resultAnswer.minute
+        let weekday = resultAnswer.weekday
         
         fireDate.hour = hour!
         fireDate.minute = minutes!
         
-        self.store.setValueInState(value: String(describing:hour!) as NSSecureCoding, forKey: "notificationHour")
-        self.store.setValueInState(value: String(describing:minutes!) as NSSecureCoding, forKey: "notificationMinutes")
+        //TAKE CARE OF STORING VALUE IN STATE MACHINE
+        if (surveyName == "Side-Effects") {
+            
+            self.store.setValueInState(value: String(describing:hour!) as NSSecureCoding, forKey: "sideEffectNotificationHour")
+            self.store.setValueInState(value: String(describing:minutes!) as NSSecureCoding, forKey: "sideEffectNotificationMinutes")
+        }
         
+        if (surveyName == "Well-Being") {
+            fireDate.weekday = weekday!
+            
+            self.store.setValueInState(value: String(describing:hour!) as NSSecureCoding, forKey: "wellBeingNotificationHour")
+            self.store.setValueInState(value: String(describing:minutes!) as NSSecureCoding, forKey: "wellBeingNotificationMinutes")
+            self.store.setValueInState(value: String(describing:weekday!) as NSSecureCoding?, forKey: "wellBeingNotificationDayofWeek")
+        }
+        
+
+        
+        let notificationHeaderTitle = "Precision Medicine Study"
+        let notificationBody = "It's time to complete the \(surveyName) Survey"
         
         if #available(iOS 10.0, *) {
             let content = UNMutableNotificationContent()
-            content.title = "Precision Medicine Study"
-            content.body = "It's time to complete your ______ Survey"
+            content.title = notificationHeaderTitle
+            content.body = notificationBody
             content.sound = UNNotificationSound.default
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate as DateComponents,
@@ -85,16 +102,37 @@ class SurveyTimesViewController: UIViewController {
             
             let localNotification = UILocalNotification()
             localNotification.fireDate = fireDateLocal
-            localNotification.alertTitle = "Precision Medicine Study"
-            localNotification.alertBody = "It's time to complete your ______ Survey"
+            localNotification.alertTitle = notificationHeaderTitle
+            localNotification.alertBody = notificationBody
             localNotification.timeZone = TimeZone(abbreviation: "EDT")!
             //set the notification
             UIApplication.shared.scheduleLocalNotification(localNotification)
         }
         
         
+        //initialize empty survey queue
+//        let initialSurveyQueue = SurveyQueue()
+//        initialSurveyQueue.surveys = []
+//        self.store.setValueInState(value: initialSurveyQueue as! NSSecureCoding, forKey: "surveyQueue")
+        
+//        let updateQueueDate = userCalendar.date(from: fireDate as DateComponents)!
+//        let timer = Timer(fireAt: updateQueueDate, interval: 0, target: self, selector: #selector(addToSurveyQueue), userInfo: nil, repeats: true)
+//        RunLoop.main.add(timer, forMode: .common)
+        
+        
     }
     
+//    @objc func addToSurveyQueue(surveyTime: NSDateComponents, surveyName: String){
+//        //GET DATE NOW
+//        //CREATE AN INSTANCE OF SURVEY OBJECT WITH SURVEY NAME AND CURRENT DATE
+//        //UPDATE THE SURVEY QUEUE CLASS WITH THIS NEW ONE
+//        
+//        //GET CURRENT SURVEY QUEUE FROM STATE MACHINE
+//        // ADD THIS NEW SURVEY TO QUEUE
+////        self.store.setValueInState(value: outstandingSurveys as NSSecureCoding, forKey: "outStandingSurveys")
+//        
+//        
+//    }
 }
 
 extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
@@ -103,23 +141,48 @@ extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
         //Handle results with taskViewController.result
         taskViewController.dismiss(animated: true, completion: nil)
         
-        let taskResultS = taskViewController.result.results
+        var sideEffectSurveyDate = DateComponents()
+        var wellBeingSurveyDate = DateComponents()
+        var standardizedSurveyDate = DateComponents()
         
+        let taskResultS = taskViewController.result.results
         for stepResults in taskResultS! as! [ORKStepResult]
         {
             for result in stepResults.results!
             {
-               //first try to set the time for the daily notification survey
-                if (result.identifier == "sideEffectsSurveyTime") {
-                    let dailySurveyResult = result as! ORKTimeOfDayQuestionResult
-                    let dailySurveyTime = dailySurveyResult.answer as! DateComponents
+                if (result.identifier == "wbTime") {
+                    let wbTimeSurveyResult = result as! ORKTimeOfDayQuestionResult
+                    let wbTime = wbTimeSurveyResult.answer as! DateComponents
                     
-                    self.setNotification(resultAnswer: dailySurveyTime)
+                    wellBeingSurveyDate.hour = wbTime.hour
+                    wellBeingSurveyDate.minute = wbTime.minute
                 }
+                if (result.identifier == "wbWeekday") {
+                    let wbDaySurveyResult = result as! ORKChoiceQuestionResult
+                    let wbDayArr = wbDaySurveyResult.answer as! NSArray
+                    
+                    let wbDay = wbDayArr[0] as! NSNumber
+                    
+                    wellBeingSurveyDate.weekday = wbDay.intValue
+                    
+                    self.setNotification(resultAnswer: wellBeingSurveyDate, surveyName: "Well-Being")
+                }
+                if (result.identifier == "sideEffectsSurveyTime") {
+                    let sideFxTimeSurveyResult = result as! ORKTimeOfDayQuestionResult
+                    let sideFxTime = sideFxTimeSurveyResult.answer as! DateComponents
+                    
+                    sideEffectSurveyDate.hour = sideFxTime.hour
+                    sideEffectSurveyDate.minute = sideFxTime.minute
+                    
+                    self.setNotification(resultAnswer: sideEffectSurveyDate, surveyName: "Side-Effects")
+                }
+
                 print(result)
                 
             }
         }
+        
+        
         
         
         

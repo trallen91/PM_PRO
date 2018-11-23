@@ -18,13 +18,13 @@ public var SetSurveyTimeTask: ORKOrderedTask {
     
     //These answer formats will be used across all 3 steps
     let weekdayTextChoices = [
-        ORKTextChoice(text: "Monday", value: "Monday" as NSString),
-        ORKTextChoice(text: "Tuesday", value: "Tuesday" as NSString),
-        ORKTextChoice(text: "Wednesday", value: "Wednesday" as NSString),
-        ORKTextChoice(text: "Thursday", value: "Thursday" as NSString),
-        ORKTextChoice(text: "Friday", value: "Friday" as NSString),
-        ORKTextChoice(text: "Saturday", value: "Saturday" as NSString),
-        ORKTextChoice(text: "Sunday", value: "Sunday" as NSString)
+        ORKTextChoice(text: "Monday", value: 2 as NSNumber),
+        ORKTextChoice(text: "Tuesday", value: 3 as NSNumber),
+        ORKTextChoice(text: "Wednesday", value: 4 as NSNumber),
+        ORKTextChoice(text: "Thursday", value: 5 as NSNumber),
+        ORKTextChoice(text: "Friday", value: 6 as NSNumber),
+        ORKTextChoice(text: "Saturday", value: 7 as NSNumber),
+        ORKTextChoice(text: "Sunday", value: 1 as NSNumber)
         
     ]
     let weekdayAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: weekdayTextChoices)
@@ -39,7 +39,7 @@ public var SetSurveyTimeTask: ORKOrderedTask {
     let ssWeekday = ORKFormItem(identifier:"ssWeekday", text:"Enter day of week", answerFormat: weekdayAnswerFormat)
     let ssTime = ORKFormItem(identifier:"ssTime", text:"Enter time of day", answerFormat: timeAnswerFormat)
     standardSurveyTimeStep.formItems = [ssTime, ssWeekday]
-    
+    standardSurveyTimeStep.isOptional = false
      steps += [standardSurveyTimeStep]
     
     
@@ -52,7 +52,7 @@ public var SetSurveyTimeTask: ORKOrderedTask {
     let wbTime = ORKFormItem(identifier: "wbTime", text:"Enter time of day", answerFormat: timeAnswerFormat)
     
     wellBeingSurveyTime.formItems = [wbTime, wbWeekday]
-    
+    wellBeingSurveyTime.isOptional = false
     steps += [wellBeingSurveyTime]
     
     //Get time for this DAILY patient-reported side effects survey
@@ -60,6 +60,7 @@ public var SetSurveyTimeTask: ORKOrderedTask {
     sideEffectsSurveyTime.title = "Side Effects Survey"
     sideEffectsSurveyTime.text = "Please enter the ideal time of day for you to take this DAILY survey"
     sideEffectsSurveyTime.answerFormat = timeAnswerFormat
+    sideEffectsSurveyTime.isOptional = false
     steps += [sideEffectsSurveyTime]
     
     

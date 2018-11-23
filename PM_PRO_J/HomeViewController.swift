@@ -12,7 +12,9 @@ import ResearchKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var surveys: [String] = []
-
+    var store: RSStore!
+    var curSurvey: String! // Variable to store which survey is being taken...maybe should be tuple of string/date
+    
     @objc func settingsItemClicked()
     {
         self.performSegue(withIdentifier: "settingsSegue", sender: nil)
@@ -22,12 +24,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.store = RSStore()
         
         self.title = "Home"
         self.navigationItem.hidesBackButton = true
         
         //This definition has to be in the viewDidLoad func to work, apparently.
         let rightBarButtonItem: UIBarButtonItem = {
+            //programmatically make segue to the Settings ViewController
             let barButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(HomeViewController.settingsItemClicked))
             
             return barButtonItem
@@ -35,13 +39,13 @@ class HomeViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
         
-//        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .search, target: self, action: "barButtonItemClicked:"), animated: true)
-//        self.navigationItem.rightBarButtonItem.
-//        addTarget(self, action: "buttonClicked:", for: .touchUpInside)
+        //for now create the surveys here...have to think about when/where I'd actually create them
+        let outstandingSurveys = createSurveyArray()
+        self.store.setValueInState(value: outstandingSurveys as NSSecureCoding, forKey: "outStandingSurveys")
         
-        //programmatically make segue to the Settings ViewController
         
-        surveys = createSurveyArray()
+        //retrieve the surveys from the stored surveys
+        surveys = self.store.valueInState(forKey: "outStandingSurveys") as! [String]
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -53,9 +57,29 @@ class HomeViewController: UIViewController {
 
     
     func createSurveyArray() -> [String] {
-        //this function should load all of the outstanding surveys
-        //for now, just hardcode the 3 survey names
+        //LOAD IN THE SURVEY QUEUE
+        let surveyQueue = SurveyQueue()
+            
+        surveyQueue.surveys = self.store.valueInState(forKey: "surveyQueue") as! [Survey]
+        
+        
+        // GET CURRENT DATETIME
+        let date = Date()
+        let calendar = Calendar.current
+        let curHour = calendar.component(.hour, from: date)
+        let curMinutes = calendar.component(.minute, from: date)
+        
+        //GET DATETIME OF NOTIFICATION
+        let seNotifHour = (self.store.valueInState(forKey: "sideEffectNotificationHour") as! NSString).intValue
+        let seNotifMinute = (self.store.valueInState(forKey: "sideEffectNotificationMinutes") as! NSString).intValue
+        
+        //OUTSTANDING SURVEYS
         var outstandingSurveys: [String] = []
+        
+        if (curHour >= seNotifHour && curMinutes >= seNotifMinute) {
+            print("It is after the notification time")
+        }
+        
         
         let survey1 = "Standardized Survey"
         let survey2 = "Well-Being Survey"
@@ -68,22 +92,24 @@ class HomeViewController: UIViewController {
         return outstandingSurveys
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-//    @objc func surveyButtonClicked()
-//    {
-//        print("Survey button clicked")
-//    }
+    func removeFromSurveyQueue(surveyName : String) {
+        var outstandingSurveys = self.store.valueInState(forKey: "outStandingSurveys") as! [String]
+        
+        for survey in outstandingSurveys {
+            if (survey == surveyName) {
+                //remove this survey
+                print("\(surveyName) being removed")
+            }
+        }
+        
+        self.store.setValueInState(value: outstandingSurveys as NSSecureCoding, forKey: "outStandingSurveys")
+        
+    }
+    
     
     @objc func standardSurveyClicked()
     {
+        curSurvey = "Standardized Survey"
         let taskViewController = ORKTaskViewController(task: StandardSurveyTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
@@ -91,6 +117,7 @@ class HomeViewController: UIViewController {
     
     @objc func wbSurveyClicked()
     {
+        curSurvey = "Well-Being Survey"
         let taskViewController = ORKTaskViewController(task: WellBeingSurveyTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
@@ -98,10 +125,13 @@ class HomeViewController: UIViewController {
     
     @objc func seSurveyClicked()
     {
+        curSurvey = "Side Effects Survey"
         let taskViewController = ORKTaskViewController(task: SideEffectSurveyTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
     }
+    
+    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -145,6 +175,9 @@ extension HomeViewController : ORKTaskViewControllerDelegate {
         taskViewController.dismiss(animated: true, completion: nil)
         
         if reason == .completed {
+            //REMOVE THIS SURVEY FROM THE SURVEY QUEUE
+            removeFromSurveyQueue(surveyName: curSurvey)
+            //REFRESH THE VIEW SO THAT SCREEN IS UPDATED WITH NEW LIST??
             print("You completed this task!")
         }
     }

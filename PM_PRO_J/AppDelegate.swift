@@ -146,12 +146,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
         }
         
+        self.initializeSurveyQueue()
         // Navigate to correct view controller
         self.showViewController(animated: false)
         
         
         
         return true
+    }
+    
+    func initializeSurveyQueue() { // MOVE THIS INTO SURVEYTIMESETTING VIEWCONTROLLER WHEN DONE TESTING
+        print("Initializing Survey Queue...")
+        let initialSurveyQueue = SurveyQueue()
+        initialSurveyQueue.surveys = []
+        
+        let initialStandardized = StandardizedSurvey()
+        print(initialStandardized.Name)
+        initialSurveyQueue.surveys.append(initialStandardized)
+        
+        let initialWB = WellbeingSurvey()
+        print(initialWB.Name)
+        initialSurveyQueue.surveys.append(initialWB)
+        
+        let initialSE = SideEffectSurvey()
+        print(initialSE.Name)
+        initialSurveyQueue.surveys.append(initialSE)
+        
+        
+        self.store.setValueInState(value: initialSurveyQueue.surveys as! NSSecureCoding, forKey: "surveyQueue")
     }
     
     @available(iOS 10.0, *)
