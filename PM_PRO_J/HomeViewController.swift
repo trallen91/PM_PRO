@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var outstandingSurveys: [Survey]!
     var store: RSStore!
-    var curSurvey: String! 
+    var curSurvey: String!
     
     @objc func settingsItemClicked()
     {
