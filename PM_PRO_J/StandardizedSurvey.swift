@@ -11,10 +11,9 @@ class StandardizedSurvey : Survey {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    var name : NSString = "Standardized Survey"
     
     override init () {
         super.init()
-        self.Name = name
+        self.Name = "Standardized Survey"
     }
 }

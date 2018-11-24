@@ -11,9 +11,9 @@ import ResearchKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var surveys: [String] = []
+    var outstandingSurveys: [Survey]!
     var store: RSStore!
-    var curSurvey: String! // Variable to store which survey is being taken...maybe should be tuple of string/date
+    var curSurvey: String! 
     
     @objc func settingsItemClicked()
     {
@@ -38,15 +38,7 @@ class HomeViewController: UIViewController {
         }()
         
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
-        
-        //for now create the surveys here...have to think about when/where I'd actually create them
-        let outstandingSurveys = createSurveyArray()
-        self.store.setValueInState(value: outstandingSurveys as NSSecureCoding, forKey: "outStandingSurveys")
-        
-        
-        //retrieve the surveys from the stored surveys
-        surveys = self.store.valueInState(forKey: "outStandingSurveys") as! [String]
-        
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -54,9 +46,14 @@ class HomeViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //retrieve the surveys from the stored surveys
+        outstandingSurveys = createSurveyArray()
+    }
+    
 
     
-    func createSurveyArray() -> [String] {
+    func createSurveyArray() -> [Survey] {
         //LOAD IN THE SURVEY QUEUE
         let surveyQueue = SurveyQueue()
             
@@ -74,20 +71,26 @@ class HomeViewController: UIViewController {
         let seNotifMinute = (self.store.valueInState(forKey: "sideEffectNotificationMinutes") as! NSString).intValue
         
         //OUTSTANDING SURVEYS
-        var outstandingSurveys: [String] = []
+        var outstandingSurveys: [Survey] = []
+        
+        for survey in surveyQueue.surveys {
+            if !(survey.IsComplete) {
+                outstandingSurveys.append(survey)
+            }
+        }
         
         if (curHour >= seNotifHour && curMinutes >= seNotifMinute) {
             print("It is after the notification time")
         }
         
         
-        let survey1 = "Standardized Survey"
-        let survey2 = "Well-Being Survey"
-        let survey3 = "Side Effects Survey"
-
-        outstandingSurveys.append(survey1)
-        outstandingSurveys.append(survey2)
-        outstandingSurveys.append(survey3)
+//        let survey1 = "Standardized Survey"
+//        let survey2 = "Well-Being Survey"
+//        let survey3 = "Side Effects Survey"
+//
+//        outstandingSurveys.append(survey1)
+//        outstandingSurveys.append(survey2)
+//        outstandingSurveys.append(survey3)
         
         return outstandingSurveys
     }
@@ -138,27 +141,28 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        print("Table View func1 executed")
-        print(surveys.count)
-        return surveys.count
+        return outstandingSurveys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        print("Table View func2 executed")
-        let survey = surveys[indexPath.row]
+        let survey = outstandingSurveys[indexPath.row]
+        
+        let surveyName = survey.Name as! String
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyCell") as! SurveyCell
         
 
-        cell.surveyButton.setTitle(survey,for: .normal)
+        cell.surveyButton.setTitle(surveyName,for: .normal)
         cell.surveyButton.contentHorizontalAlignment = .left
         cell.surveyDate.text = "10/23/18"
-        if(survey == "Standardized Survey") {
+        if(surveyName == "Standardized Survey") {
             cell.surveyButton.addTarget(self, action: #selector(HomeViewController.standardSurveyClicked), for: .touchUpInside)
         }
-        else if (survey == "Well-Being Survey") {
+        else if (surveyName == "Well-Being Survey") {
             cell.surveyButton.addTarget(self, action: #selector(HomeViewController.wbSurveyClicked), for: .touchUpInside)
         }
-        else if(survey == "Side Effects Survey") {
+        else if(surveyName == "Side-Effects Survey") {
             cell.surveyButton.addTarget(self, action: #selector(HomeViewController.seSurveyClicked), for: .touchUpInside)
         }
 
@@ -177,8 +181,6 @@ extension HomeViewController : ORKTaskViewControllerDelegate {
         if reason == .completed {
             //REMOVE THIS SURVEY FROM THE SURVEY QUEUE
             removeFromSurveyQueue(surveyName: curSurvey)
-            //REFRESH THE VIEW SO THAT SCREEN IS UPDATED WITH NEW LIST??
-            print("You completed this task!")
         }
     }
     
