@@ -15,13 +15,8 @@ class Survey : NSObject, NSCoding {
     var Name: NSString!
     var OpenDate: NSDate!
     var IsComplete: Bool!
-    
-//    var DaysValid: NSNumber!
-    
+        
     var DaysBetweenSurveys: NSNumber!
-    
-//    var SurveyInterval: NSDateComponents!
-    
     var ExpirationDate: NSDate!
     
     //MARK: TO MAKE IT CONFORM TO NSCoding PROTOCOL
@@ -46,10 +41,6 @@ class Survey : NSObject, NSCoding {
     init(OpenDate : NSDate = NSDate()) {
         self.IsComplete = false
         self.OpenDate = OpenDate
-
-        
-        
-//        self.ExpirationDate = NSCalendar.currentCalendar.dateByAddingComponents(addDays, toDate: self.OpenDate, options: NSCalendar.Options.init(rawValue: 0))
         
         super.init()
     }

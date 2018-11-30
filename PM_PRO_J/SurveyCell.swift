@@ -12,6 +12,9 @@ class SurveyCell: UITableViewCell {
     
     @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var surveyDate: UILabel!
+    
+    var surveyID: String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

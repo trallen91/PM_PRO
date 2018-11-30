@@ -11,9 +11,14 @@ import ResearchKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var surveyQueue: [Survey]!
     var outstandingSurveys: [Survey]!
+    
     var store: RSStore!
-    var curSurvey: String!
+    
+    var curSurveyId: String!
+    
+    var curSurveyName: NSString! // HACKY WORK-AROUND WHICH ONLY WORKS IF THERE IS ONE OF EACH TYPE OF SURVEY
     
     @objc func settingsItemClicked()
     {
@@ -48,71 +53,95 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //retrieve the surveys from the stored surveys
-        outstandingSurveys = createSurveyArray()
+        surveyQueue = updateSurveyQueue()
+        outstandingSurveys = getOutstandingSurveys(surveyQ: surveyQueue) // This doesn't refresh Table
     }
     
-
-    
-    func createSurveyArray() -> [Survey] {
-        //LOAD IN THE SURVEY QUEUE
-        let surveyQueue = SurveyQueue()
-            
-        surveyQueue.surveys = self.store.valueInState(forKey: "surveyQueue") as! [Survey]
-        
+    func updateSurveyQueue() -> [Survey] {
+        surveyQueue =  self.store.valueInState(forKey: "surveyQueue") as! [Survey]
+        var updatedSurveyQ : [Survey] = []
         
         // GET CURRENT DATETIME
-        let date = Date()
-        let calendar = Calendar.current
-        let curHour = calendar.component(.hour, from: date)
-        let curMinutes = calendar.component(.minute, from: date)
+        let currentDate = NSDate()
         
-        //GET DATETIME OF NOTIFICATION
-        let seNotifHour = (self.store.valueInState(forKey: "sideEffectNotificationHour") as! NSString).intValue
-        let seNotifMinute = (self.store.valueInState(forKey: "sideEffectNotificationMinutes") as! NSString).intValue
-        
+        for survey in surveyQueue {
+            let surveyType = survey.Name
+            if (currentDate.laterDate(survey.ExpirationDate as Date) == currentDate as Date) {//means survey is expired...this shouldn't be the only way to add new surveys to queue, but can revisit
+                var newSurvey : Survey!
+                let newSurveyOpenDate = Calendar.current.date(byAdding: .day, value: survey.DaysBetweenSurveys as! Int, to: survey.OpenDate! as Date) as! NSDate
+                
+                if (surveyType == "Standardized Survey") { //SHOULD THIS BE TYPE CHECKING?
+                    newSurvey = StandardizedSurvey(OpenDate: newSurveyOpenDate)
+                }
+                else if (surveyType == "Well-Being Survey") {
+                    newSurvey = WellbeingSurvey(OpenDate: newSurveyOpenDate)
+                }
+                else if (surveyType == "Side-Effects Survey") {
+                    newSurvey = SideEffectSurvey(OpenDate: newSurveyOpenDate)
+                }
+
+                updatedSurveyQ.append(newSurvey)
+            }
+            else {
+                updatedSurveyQ.append(survey)
+            }
+        }
+     
+        //sort updatedSurveyQ by OpenDate
+        self.store.setValueInState(value: updatedSurveyQ as! NSSecureCoding, forKey: "surveyQueue")
+        return updatedSurveyQ
+     
+     }
+    
+    func getOutstandingSurveys(surveyQ : [Survey]) -> [Survey] {
+
         //OUTSTANDING SURVEYS
         var outstandingSurveys: [Survey] = []
         
-        for survey in surveyQueue.surveys {
+        for survey in surveyQ {
             if !(survey.IsComplete) {
                 outstandingSurveys.append(survey)
             }
         }
         
-        if (curHour >= seNotifHour && curMinutes >= seNotifMinute) {
-            print("It is after the notification time")
-        }
-        
-        
-//        let survey1 = "Standardized Survey"
-//        let survey2 = "Well-Being Survey"
-//        let survey3 = "Side Effects Survey"
-//
-//        outstandingSurveys.append(survey1)
-//        outstandingSurveys.append(survey2)
-//        outstandingSurveys.append(survey3)
-        
         return outstandingSurveys
     }
     
-    func removeFromSurveyQueue(surveyName : String) {
-        var outstandingSurveys = self.store.valueInState(forKey: "outStandingSurveys") as! [String]
+    func markAsComplete(surveyName : NSString) {
+        var curQ = self.store.valueInState(forKey: "surveyQueue") as! [Survey]
+        var updatedSurveyQ : [Survey] = []
         
-        for survey in outstandingSurveys {
-            if (survey == surveyName) {
-                //remove this survey
-                print("\(surveyName) being removed")
+        for survey in curQ {
+            if (survey.Name == surveyName) {
+                survey.IsComplete = true
             }
+            updatedSurveyQ.append(survey)
         }
         
-        self.store.setValueInState(value: outstandingSurveys as NSSecureCoding, forKey: "outStandingSurveys")
+        self.store.setValueInState(value: updatedSurveyQ as! NSSecureCoding, forKey: "surveyQueue")
         
     }
     
+    @objc func surveyClicked(survey : Survey ){ //figure out how to pass survey parameter thru selector
+        curSurveyId = String(UInt(bitPattern: ObjectIdentifier(survey)))
+        var surveyTVC : ORKTaskViewController!
+        if (survey.Name == "Standardized Survey") {
+            surveyTVC = ORKTaskViewController(task: StandardSurveyTask, taskRun: nil)
+        }
+        else if (survey.Name == "Well-Being Survey") {
+            surveyTVC = ORKTaskViewController(task: WellBeingSurveyTask, taskRun: nil)
+        }
+        else if (survey.Name == "Side-Effects Survey") {
+            surveyTVC = ORKTaskViewController(task: SideEffectSurveyTask, taskRun: nil)
+        }
+        
+        surveyTVC.delegate = self
+        present(surveyTVC, animated: true, completion: nil)
+    }
     
-    @objc func standardSurveyClicked()
+    @objc func standardSurveyClicked(sender: UIButton)
     {
-        curSurvey = "Standardized Survey"
+        curSurveyName = "Standardized Survey"
         let taskViewController = ORKTaskViewController(task: StandardSurveyTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
@@ -120,7 +149,7 @@ class HomeViewController: UIViewController {
     
     @objc func wbSurveyClicked()
     {
-        curSurvey = "Well-Being Survey"
+        curSurveyName = "Well-Being Survey"
         let taskViewController = ORKTaskViewController(task: WellBeingSurveyTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
@@ -128,7 +157,7 @@ class HomeViewController: UIViewController {
     
     @objc func seSurveyClicked()
     {
-        curSurvey = "Side Effects Survey"
+        curSurveyName = "Side-Effects Survey"
         let taskViewController = ORKTaskViewController(task: SideEffectSurveyTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
@@ -148,14 +177,23 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //        print("Table View func2 executed")
         let survey = outstandingSurveys[indexPath.row]
         
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        let displayDate = dateFormatter.string(from: survey.OpenDate as Date)
+        
+        
         let surveyName = survey.Name as! String
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyCell") as! SurveyCell
-        
-
         cell.surveyButton.setTitle(surveyName,for: .normal)
         cell.surveyButton.contentHorizontalAlignment = .left
-        cell.surveyDate.text = "10/23/18"
+        cell.surveyDate.text = displayDate
+        cell.surveyID = String(UInt(bitPattern: ObjectIdentifier(survey)))
+        
+        print("Unique String: ")
+        print(cell.surveyID)
         if(surveyName == "Standardized Survey") {
             cell.surveyButton.addTarget(self, action: #selector(HomeViewController.standardSurveyClicked), for: .touchUpInside)
         }
@@ -166,7 +204,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.surveyButton.addTarget(self, action: #selector(HomeViewController.seSurveyClicked), for: .touchUpInside)
         }
 
-//        print(cell.surveyName.text)
         return cell
     }
 }
@@ -174,13 +211,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 extension HomeViewController : ORKTaskViewControllerDelegate {
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
-        
-        
         taskViewController.dismiss(animated: true, completion: nil)
         
         if reason == .completed {
             //REMOVE THIS SURVEY FROM THE SURVEY QUEUE
-            removeFromSurveyQueue(surveyName: curSurvey)
+            markAsComplete(surveyName: curSurveyName)
         }
     }
     

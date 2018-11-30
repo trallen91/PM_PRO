@@ -161,13 +161,15 @@ class ANCLocationManager: NSObject, CLLocationManagerDelegate {
 //        }
 //    }
 //
-//    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
-//        self.recordEvent(regionIdentifier: region.identifier, action: .enter)
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didExitRegion region:CLRegion){
-//        self.recordEvent(regionIdentifier: region.identifier, action: .exit)
-//    }
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
+        //self.recordEvent(regionIdentifier: region.identifier, action: .enter)
+        print("You are entering \(region.identifier)")
+    }
+
+    func locationManager(_ manager: CLLocationManager, didExitRegion region:CLRegion){
+        //self.recordEvent(regionIdentifier: region.identifier, action: .exit)
+        print("You are exiting \(region.identifier)")
+    }
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         

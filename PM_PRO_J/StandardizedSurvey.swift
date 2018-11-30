@@ -16,9 +16,7 @@ class StandardizedSurvey : Survey {
     override init (OpenDate : NSDate = NSDate()) {
         super.init()
         self.Name = "Standardized Survey"
-        //self.SurveyInterval.day = 14
-        
-        
+
         self.DaysBetweenSurveys = 14
         
         let daysValid = (self.DaysBetweenSurveys as! Int) * (self.SurveyTypesPerQueue as! Int) //Becomes invalid when queue has too many of this type
