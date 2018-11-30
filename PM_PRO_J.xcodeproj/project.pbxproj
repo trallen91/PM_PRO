@@ -23,6 +23,7 @@
 		F8A0786D21A8957300469C89 /* WellbeingSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0786C21A8957300469C89 /* WellbeingSurvey.swift */; };
 		F8A0786F21A895AB00469C89 /* SideEffectSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0786E21A895AB00469C89 /* SideEffectSurvey.swift */; };
 		F8A0787121A895D300469C89 /* StandardizedSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787021A895D300469C89 /* StandardizedSurvey.swift */; };
+		F8A0787321B1AB4400469C89 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787221B1AB4400469C89 /* LocationManager.swift */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
 		F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* IntroViewController.swift */; };
 		F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */; };
@@ -31,7 +32,7 @@
 		F8C758C6217121CD00E590AD /* PM_PRO_JTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758C5217121CD00E590AD /* PM_PRO_JTests.swift */; };
 		F8C758D1217121CD00E590AD /* PM_PRO_JUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758D0217121CD00E590AD /* PM_PRO_JUITests.swift */; };
 		F8EEB24721712ED200612D84 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24621712ED200612D84 /* Store.swift */; };
-		F8EEB2492171303400612D84 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2482171303400612D84 /* LocationManager.swift */; };
+		F8EEB2492171303400612D84 /* ANCLocationManager_NOTUSED.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB2482171303400612D84 /* ANCLocationManager_NOTUSED.swift */; };
 		F8EEB24D217188BB00612D84 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24A217188BB00612D84 /* SurveyTask.swift */; };
 		F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24B217188BB00612D84 /* ConsentDocument.swift */; };
 		F8EEB24F217188BB00612D84 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EEB24C217188BB00612D84 /* ConsentTask.swift */; };
@@ -97,6 +98,7 @@
 		F8A0786C21A8957300469C89 /* WellbeingSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellbeingSurvey.swift; sourceTree = "<group>"; };
 		F8A0786E21A895AB00469C89 /* SideEffectSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectSurvey.swift; sourceTree = "<group>"; };
 		F8A0787021A895D300469C89 /* StandardizedSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardizedSurvey.swift; sourceTree = "<group>"; };
+		F8A0787221B1AB4400469C89 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C758B2217121CC00E590AD /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +113,7 @@
 		F8C758D0217121CD00E590AD /* PM_PRO_JUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PM_PRO_JUITests.swift; sourceTree = "<group>"; };
 		F8C758D2217121CD00E590AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8EEB24621712ED200612D84 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		F8EEB2482171303400612D84 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F8EEB2482171303400612D84 /* ANCLocationManager_NOTUSED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANCLocationManager_NOTUSED.swift; sourceTree = "<group>"; };
 		F8EEB24A217188BB00612D84 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 		F8EEB24B217188BB00612D84 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		F8EEB24C217188BB00612D84 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
@@ -215,7 +217,7 @@
 				F8EEB24B217188BB00612D84 /* ConsentDocument.swift */,
 				F8EEB24C217188BB00612D84 /* ConsentTask.swift */,
 				F8EEB24A217188BB00612D84 /* SurveyTask.swift */,
-				F8EEB2482171303400612D84 /* LocationManager.swift */,
+				F8EEB2482171303400612D84 /* ANCLocationManager_NOTUSED.swift */,
 				F8EEB24621712ED200612D84 /* Store.swift */,
 				F8C758B0217121CC00E590AD /* AppDelegate.swift */,
 				F8C758B2217121CC00E590AD /* IntroViewController.swift */,
@@ -254,6 +256,7 @@
 				F8A0786C21A8957300469C89 /* WellbeingSurvey.swift */,
 				F8A0786E21A895AB00469C89 /* SideEffectSurvey.swift */,
 				F8A0787021A895D300469C89 /* StandardizedSurvey.swift */,
+				F8A0787221B1AB4400469C89 /* LocationManager.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -538,7 +541,7 @@
 			files = (
 				F8EEB257217800A500612D84 /* InclusionExclusionViewController.swift in Sources */,
 				F8EEB2592178123300612D84 /* EligibilityCell.swift in Sources */,
-				F8EEB2492171303400612D84 /* LocationManager.swift in Sources */,
+				F8EEB2492171303400612D84 /* ANCLocationManager_NOTUSED.swift in Sources */,
 				F8EEB267217E0C9600612D84 /* HomeViewController.swift in Sources */,
 				F8EEB25F217BC4EF00612D84 /* LoginViewController.swift in Sources */,
 				F8EEB26B217E708000612D84 /* SettingsViewController.swift in Sources */,
@@ -554,6 +557,7 @@
 				F8EEB25D217BC05200612D84 /* RegistrationViewController.swift in Sources */,
 				F8EEB271217FF65100612D84 /* StandardSurveyTask.swift in Sources */,
 				F8A0786F21A895AB00469C89 /* SideEffectSurvey.swift in Sources */,
+				F8A0787321B1AB4400469C89 /* LocationManager.swift in Sources */,
 				F8EEB269217E169100612D84 /* SurveyCell.swift in Sources */,
 				F8EEB24721712ED200612D84 /* Store.swift in Sources */,
 				F8A0786B21A8688C00469C89 /* SurveyQueue.swift in Sources */,

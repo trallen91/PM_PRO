@@ -12,36 +12,36 @@ import UIKit
 
 class GeofenceSetViewController: UIViewController, CLLocationManagerDelegate {
     var store: RSStore!
-    var geofenceRadius: Int!
-    let locationManager: CLLocationManager = CLLocationManager()
+    var locMgr: LocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Enter Locations"
         self.store = RSStore()
-        self.geofenceRadius = 150
         
-        locationManager.delegate = self
+        self.locMgr = LocationManager()
         
-        locationManager.requestAlwaysAuthorization()
-        
-        locationManager.startUpdatingLocation()
+//        locationManager.delegate = self
 //
-        locationManager.distanceFilter = 100
+//        locationManager.requestAlwaysAuthorization()
+//
+//        locationManager.startUpdatingLocation()
+////
+//        locationManager.distanceFilter = 100
 //
 //        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 43.61871, longitude: -116.214607), radius: 150, identifier: "Boise")
 //
 //        locationManager.startMonitoring(for: geoFenceRegion)
     }
     
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("You are entering \(region.identifier)")
-    }
-
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
-        print("You are leaving \(region.identifier)")
-    }
+//    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+//        print("You are entering \(region.identifier)")
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
+//        print("You are leaving \(region.identifier)")
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,8 +80,10 @@ extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
                     print("Home Address: ")
                     print(loc.coordinate)
                     //myLocMgr.home = loc.coordinate
-                    let homeGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Home")
-                    locationManager.startMonitoring(for: homeGeoFenceRegion)
+                    
+                    self.locMgr.home = loc.coordinate
+//                    let homeGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Home")
+//                    locationManager.startMonitoring(for: homeGeoFenceRegion)
                     
                 }
                 if result.identifier == "workAddress"
@@ -89,8 +91,8 @@ extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
                     print("Work Address: ")
                     print(loc.coordinate)
                     //myLocMgr.work = loc.coordinate
-                    let workGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Work")
-                    locationManager.startMonitoring(for: workGeoFenceRegion)
+//                    let workGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Work")
+//                    locationManager.startMonitoring(for: workGeoFenceRegion)
                     
                 }
                 if result.identifier == "hospitalAddress"
@@ -98,15 +100,15 @@ extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
                     print("Hospital Address: ")
                     print(loc.coordinate)
                     //myLocMgr.work = loc.coordinate
-                    let hospitalGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Hospital")
-                    locationManager.startMonitoring(for: hospitalGeoFenceRegion)
+//                    let hospitalGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Hospital")
+//                    locationManager.startMonitoring(for: hospitalGeoFenceRegion)
                 }
             }
         }
         
         if reason == .completed {
-            self.store.set(value: true as NSSecureCoding, key: "hasSetGeofence")
-            self.performSegue(withIdentifier: "firstSetTimeSegue", sender: nil)
+            //self.store.set(value: true as NSSecureCoding, key: "hasSetGeofence")
+            //self.performSegue(withIdentifier: "firstSetTimeSegue", sender: nil)
             
             print("Should now segue -- uncomment both lines above to restore functionality")
         }
