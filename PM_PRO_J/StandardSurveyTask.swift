@@ -27,33 +27,33 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     // NEW TREATMENTS STEP
     
     //yes-no
-    let newTreatQID = "new treatments question"
+    let newTreatQID = "survey.new treatments question"
     let newTreatQStep = ORKQuestionStep(identifier: newTreatQID, title: "Have you started any new treatments?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [newTreatQStep]
     
     //if yes section
-    let newTreatDetailsID = "newTreatDetailsID"
+    let newTreatDetailsID = "survey.newTreatDetailsID"
     let newTreatDetailsStep = ORKFormStep(identifier: newTreatDetailsID)
     newTreatDetailsStep.title = "New Treatment Details"
-    let newTreatName = ORKFormItem(identifier:"newTreatName", text:"Enter Name of Treatment(s)", answerFormat: ORKTextAnswerFormat())
-    let newTreatDate = ORKFormItem(identifier:"newTreatDate", text:"Enter Approximate Start Date(s)", answerFormat: ORKTextAnswerFormat())
+    let newTreatName = ORKFormItem(identifier:"survey.newTreatName", text:"Enter Name of Treatment(s)", answerFormat: ORKTextAnswerFormat())
+    let newTreatDate = ORKFormItem(identifier:"survey.newTreatDate", text:"Enter Approximate Start Date(s)", answerFormat: ORKTextAnswerFormat())
     newTreatDetailsStep.formItems = [newTreatName, newTreatDate]
     steps += [newTreatDetailsStep]
     
     
     //CHANGE TREATMENTS STEP
     //yes-no
-    let changeTreatQID = "change treatments question"
+    let changeTreatQID = "survey.change treatments question"
     let changeTreatQStep = ORKQuestionStep(identifier: changeTreatQID, title: "Have you changed any of your treatments?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [changeTreatQStep]
     
     //if yes section
-    let changeTreatDetailsID = "changeTreatDetailsID"
+    let changeTreatDetailsID = "survey.changeTreatDetailsID"
     let changeDetailsStep = ORKFormStep(identifier: changeTreatDetailsID)
     changeDetailsStep.title = "Change Treatment Details"
     
-    let changeTreatName = ORKFormItem(identifier:"changeTreatName", text:"Enter name of treatment(s) changed", answerFormat: ORKTextAnswerFormat())
-    let changeTreatDetails = ORKFormItem(identifier:"changeTreatDetails", text:"Details of treatment modification, inlcuding dose, regimen, etc.", answerFormat: ORKTextAnswerFormat())
+    let changeTreatName = ORKFormItem(identifier:"survey.changeTreatName", text:"Enter name of treatment(s) changed", answerFormat: ORKTextAnswerFormat())
+    let changeTreatDetails = ORKFormItem(identifier:"survey.changeTreatDetails", text:"Details of treatment modification, inlcuding dose, regimen, etc.", answerFormat: ORKTextAnswerFormat())
 
     changeDetailsStep.formItems = [changeTreatName, changeTreatDetails]
     
@@ -61,39 +61,39 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     
     
     //STOP TREATMENTS STEP
-    let stopTreatQID = "Stop Treatments Questions"
+    let stopTreatQID = "survey.Stop Treatments Questions"
     let stopTreatQStep = ORKQuestionStep(identifier: stopTreatQID, title: "Have you stopped any of your treatments?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [stopTreatQStep]
     //if yes section
-    let stopTreatYesID = "stopTreatYesID"
+    let stopTreatYesID = "survey.stopTreatYesID"
     let stopTreatYesStep = ORKFormStep(identifier: stopTreatYesID)
     stopTreatYesStep.title = "Discontinuation Details"
     
-    let stopTreatName = ORKFormItem(identifier: "stopTreatName", text:"Enter name of discontinued treatment(s)", answerFormat: ORKTextAnswerFormat())
-    let stopTreatDate = ORKFormItem(identifier: "stopTreatDate", text:"Enter approximate stop date(s)", answerFormat: ORKTextAnswerFormat())
-    let stopTreatReason = ORKFormItem(identifier: "stopTreatReason", text:"Reason for discontinuation", answerFormat: ORKTextAnswerFormat())
+    let stopTreatName = ORKFormItem(identifier: "survey.stopTreatName", text:"Enter name of discontinued treatment(s)", answerFormat: ORKTextAnswerFormat())
+    let stopTreatDate = ORKFormItem(identifier: "survey.stopTreatDate", text:"Enter approximate stop date(s)", answerFormat: ORKTextAnswerFormat())
+    let stopTreatReason = ORKFormItem(identifier: "survey.stopTreatReason", text:"Reason for discontinuation", answerFormat: ORKTextAnswerFormat())
     
     stopTreatYesStep.formItems = [stopTreatName, stopTreatDate,stopTreatReason]
     steps += [stopTreatYesStep]
     
     //HOSPITALIZATION STEP
-    let hospQID = "HospitalizationQuestion"
+    let hospQID = "survey.HospitalizationQuestion"
     let hospStep = ORKQuestionStep(identifier: hospQID, title: "Have you been hospitalized since your last survey?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [hospStep]
     //if yes section
-    let hospYesID = "hospYesID"
+    let hospYesID = "survey.hospYesID"
     let hospYesStep = ORKFormStep(identifier: hospYesID)
     hospYesStep.title = "Hospitalization Details"
     
-    let hospName = ORKFormItem(identifier: "hospName", text:"Name of institution in which you were hospitalized", answerFormat: ORKTextAnswerFormat())
+    let hospName = ORKFormItem(identifier: "survey.hospName", text:"Name of institution in which you were hospitalized", answerFormat: ORKTextAnswerFormat())
 
-    let hospReason = ORKFormItem(identifier: "hospReason", text:"Reason for hospitalization", answerFormat: ORKTextAnswerFormat())
+    let hospReason = ORKFormItem(identifier: "survey.hospReason", text:"Reason for hospitalization", answerFormat: ORKTextAnswerFormat())
     
     hospYesStep.formItems = [hospName, hospReason]
     steps += [hospYesStep]
     
     //PROCEDURE STEP
-    let procIdentifer = "procIdentifier"
+    let procIdentifer = "survey.procIdentifier"
     
     let procedureTextChoices = [
         ORKTextChoice(text: "Scans", value: "Scans" as NSString),
@@ -105,8 +105,8 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     let procedureAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .multipleChoice, textChoices: procedureTextChoices)
     
     let procStep = ORKFormStep(identifier: procIdentifer)
-    let procChoiceItem = ORKFormItem(identifier: "procChoice", text:"Select any of the following surgeries you have undergone", answerFormat: procedureAnswerFormat)
-    let procDetailItem = ORKFormItem(identifier: "procDetial", text: "Please provide any known details of the procedure(s), including procedure type, reason, date, location, etc.", answerFormat: ORKTextAnswerFormat())
+    let procChoiceItem = ORKFormItem(identifier: "survey.procChoice", text:"Select any of the following surgeries you have undergone", answerFormat: procedureAnswerFormat)
+    let procDetailItem = ORKFormItem(identifier: "survey.procDetial", text: "Please provide any known details of the procedure(s), including procedure type, reason, date, location, etc.", answerFormat: ORKTextAnswerFormat())
     procStep.formItems = [procChoiceItem, procDetailItem]
     
     steps += [procStep]
@@ -124,15 +124,15 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     let eventsAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .multipleChoice, textChoices: eventsTextChoices)
     
     let eventsStep = ORKFormStep(identifier: eventsIdentifer)
-    let eventsChoiceItem = ORKFormItem(identifier: "eventsChoice", text:"Select any of the following events you have experienced:", answerFormat: eventsAnswerFormat)
-    let eventDetailItem = ORKFormItem(identifier: "eventDetail", text: "Please provide any known details of the event(s)", answerFormat: ORKTextAnswerFormat())
+    let eventsChoiceItem = ORKFormItem(identifier: "survey.eventsChoice", text:"Select any of the following events you have experienced:", answerFormat: eventsAnswerFormat)
+    let eventDetailItem = ORKFormItem(identifier: "survey.eventDetail", text: "Please provide any known details of the event(s)", answerFormat: ORKTextAnswerFormat())
     eventsStep.formItems = [eventsChoiceItem, eventDetailItem]
     
     steps += [eventsStep]
     
     //QOL STEP
     
-    let qolIdentifier = "qolIdentifier"
+    let qolIdentifier = "survey.qolIdentifier"
     
     let qolStep = ORKQuestionStep(identifier: qolIdentifier)
     qolStep.title = "How would you rate your overall health since the last survey?"
@@ -146,41 +146,41 @@ public var StandardSurveyTask: ORKNavigableOrderedTask {
     let treatPhysStep = ORKQuestionStep(identifier: treatPhysID, title: "Have there been any changes to your treating physician?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [treatPhysStep]
     //if yes section
-    let newPhysYesID = "newPhysYesID"
+    let newPhysYesID = "survey.newPhysYesID"
     let newPhysYesStep = ORKFormStep(identifier: newPhysYesID)
     newPhysYesStep.title = "Please provide any known information about new treating physician"
     
-    let newPhysName = ORKFormItem(identifier: "newPhysName", text:"Name:", answerFormat: ORKTextAnswerFormat())
-    let newPhysLoc = ORKFormItem(identifier: "newPhysLoc", text:"Institution/Location:", answerFormat: ORKTextAnswerFormat())
-    let newPhysContact = ORKFormItem(identifier: "newPhysContact", text:"Contact Information", answerFormat: ORKTextAnswerFormat())
+    let newPhysName = ORKFormItem(identifier: "survey.newPhysName", text:"Name:", answerFormat: ORKTextAnswerFormat())
+    let newPhysLoc = ORKFormItem(identifier: "survey.newPhysLoc", text:"Institution/Location:", answerFormat: ORKTextAnswerFormat())
+    let newPhysContact = ORKFormItem(identifier: "survey.newPhysContact", text:"Contact Information", answerFormat: ORKTextAnswerFormat())
     
     newPhysYesStep.formItems = [newPhysName, newPhysLoc,newPhysContact]
     steps += [newPhysYesStep]
     
     //CO-MORBIDITIES STEP
-    let comorbidID = "Comorbidities Question"
+    let comorbidID = "survey.Comorbidities Question"
     let comorbidStep = ORKQuestionStep(identifier: comorbidID, title: "Have you been diagnosed with any other medical conditions?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [comorbidStep]
     //if yes section
-    let comorbidYesID = "comorbidYesID"
+    let comorbidYesID = "survey.comorbidYesID"
     let comorbidYesStep = ORKFormStep(identifier: comorbidYesID)
     comorbidYesStep.title = "Please provide any known details of condition, including diagnosis, date of diagnosis, and any treatment received."
     
-    let comborbidDetail = ORKFormItem(identifier: "comborbidDetail", text:"Details", answerFormat: ORKTextAnswerFormat())
+    let comborbidDetail = ORKFormItem(identifier: "survey.comborbidDetail", text:"Details", answerFormat: ORKTextAnswerFormat())
     
     comorbidYesStep.formItems = [comborbidDetail]
     steps += [comorbidYesStep]
     
     //FAM HISTORY STEP
-    let famHistID = "Family History Question"
+    let famHistID = "survey.Family History Question"
     let famHistStep = ORKQuestionStep(identifier: famHistID, title: "Have any of your family members been newly diagnosed with cancer?", answer: ORKAnswerFormat.booleanAnswerFormat())
     steps += [famHistStep]
     //if yes section
-    let famHistYesID = "famHistYesID"
+    let famHistYesID = "survey.famHistYesID"
     let famHistYesStep = ORKFormStep(identifier: famHistYesID)
     comorbidYesStep.title = "Please provide any known details of the diagnosis"
     
-    let famHistDetail = ORKFormItem(identifier: "famHistDetail", text:"Details", answerFormat: ORKTextAnswerFormat())
+    let famHistDetail = ORKFormItem(identifier: "survey.famHistDetail", text:"Details", answerFormat: ORKTextAnswerFormat())
     
     famHistYesStep.formItems = [famHistDetail]
     steps += [famHistYesStep]
