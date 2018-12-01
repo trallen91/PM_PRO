@@ -18,6 +18,7 @@ import LS2SDK
 import ResearchSuiteExtensions
 import ResearchSuiteAppFramework
 
+
 //<string name="ls2_base_url">https://mobileappdev.ctsc.med.cornell.edu/dsu</string>
 //<string name="ls2_queue_directory">LS2Queue</string>
 @UIApplicationMain
@@ -339,6 +340,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     //utilities
+    static func getSurveyMapping() -> [RSRPResultTransform] {
+        let json = AppDelegate.getJSON(fileName: "survey_transformer.json", inDirectory: nil, configJSONBaseURL: self.configJSONBaseURL())
+        
+        
+        let resultTransforms: [JSON] = ("resultTransforms" <~~ json!)!
+        
+        let surveyRT: [RSRPResultTransform] = resultTransforms.flatMap({ (transform) -> RSRPResultTransform? in
+            return RSRPResultTransform(json: transform)
+        })
+        
+        return surveyRT
+
+    }
+    
     static func loadSchedule(filename: String) -> RSAFSchedule? {
         guard let json = AppDelegate.getJson(forFilename: filename) as? JSON else {
             return nil
@@ -350,6 +365,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     static func configJSONBaseURL() -> String {
         return Bundle.main.resourceURL!.absoluteString
     }
+    
     
     static func loadScheduleItem(filename: String) -> RSAFScheduleItem? {
         

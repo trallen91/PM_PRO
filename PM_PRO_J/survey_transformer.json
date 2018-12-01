@@ -1,0 +1,23 @@
+{
+    "resultTransforms": [
+        {
+            "identifier":"default",
+            "transform":"auto",
+            "inputMapping":[
+                {
+                    "parameter": "schema",
+                    "constant": {
+                        "namespace":"Cornell",
+                        "name":"rs-survey",
+                        "version":"1.0.0"
+                    }
+                },
+                {
+                    "stepIdentifierRegex":"survey",
+                    "parameter":"results"
+                }
+            ]
+        }
+    ]
+}
+

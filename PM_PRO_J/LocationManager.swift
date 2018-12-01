@@ -37,6 +37,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
         //self.recordEvent(regionIdentifier: region.identifier, action: .enter)
+        //create logical location result-type of object (from ANC)
+        //Add LS2 Datapoint
         print("You are entering \(region.identifier)")
     }
     
@@ -59,11 +61,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             let oldValue = self._home
             self._home = newValue
             
-            
             self.store.set(value: newValue?.latitude as! NSNumber, key: "home_lat")
             self.store.set(value: newValue?.longitude as! NSNumber, key: "home_lng")
 
-            
             debugPrint("Setting Home")
             
             let homeRegion = CLCircularRegion(center: newValue!, radius: LocationManager.radius, identifier: "home")
@@ -101,5 +101,68 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //                }
 //            }
         }
+        
+    }
+    
+    var _work: CLLocationCoordinate2D? = nil
+    var work: CLLocationCoordinate2D? {
+        get {
+            if self._work == nil {
+                if let work_lat = self.store.valueInState(forKey: "work_lat") as? NSNumber, let work_lng = self.store.valueInState(forKey: "work_lng") as? NSNumber {
+                    self._work = CLLocationCoordinate2D(latitude: work_lat.doubleValue, longitude: work_lng.doubleValue)
+                }
+            }
+            return self._work
+        }
+        set(newValue) {
+            let oldValue = self._work
+            self._work = newValue
+            
+            self.store.set(value: newValue?.latitude as! NSNumber, key: "work_lat")
+            self.store.set(value: newValue?.longitude as! NSNumber, key: "work_lng")
+            
+            debugPrint("Setting Work")
+            
+            let workRegion = CLCircularRegion(center: newValue!, radius: LocationManager.radius, identifier: "work")
+            
+            self.locationManager.startMonitoring(for: workRegion)
+            
+            if (oldValue != nil) {
+                let oldWorkRegion = CLCircularRegion(center: oldValue!, radius: LocationManager.radius, identifier: "work")
+                self.locationManager.stopMonitoring(for: oldWorkRegion)
+            }
+        }
+        
+    }
+    
+    var _hospital: CLLocationCoordinate2D? = nil
+    var hospital: CLLocationCoordinate2D? {
+        get {
+            if self._hospital == nil {
+                if let hospital_lat = self.store.valueInState(forKey: "hospital_lat") as? NSNumber, let hospital_lng = self.store.valueInState(forKey: "hospital_lng") as? NSNumber {
+                    self._hospital = CLLocationCoordinate2D(latitude: hospital_lat.doubleValue, longitude: hospital_lng.doubleValue)
+                }
+            }
+            return self._hospital
+        }
+        set(newValue) {
+            let oldValue = self._hospital
+            self._hospital = newValue
+        
+            self.store.set(value: newValue?.latitude as! NSNumber, key: "hospital_lat")
+            self.store.set(value: newValue?.longitude as! NSNumber, key: "hospital_lng")
+            
+            debugPrint("Setting Hospital")
+            
+            let hospitalRegion = CLCircularRegion(center: newValue!, radius: LocationManager.radius, identifier: "hospital")
+            
+            self.locationManager.startMonitoring(for: hospitalRegion)
+            
+            if (oldValue != nil) {
+                let oldhospitalRegion = CLCircularRegion(center: oldValue!, radius: LocationManager.radius, identifier: "hospital")
+                self.locationManager.stopMonitoring(for: oldhospitalRegion)
+            }
+        }
+        
     }
 }

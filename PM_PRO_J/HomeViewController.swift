@@ -9,8 +9,17 @@
 import UIKit
 import ResearchKit
 
+
+import ResearchSuiteResultsProcessor
+import Gloss
+import ReSwift
+
 class HomeViewController: UIViewController {
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    
     @IBOutlet weak var tableView: UITableView!
+    
     var surveyQueue: [Survey]!
     var outstandingSurveys: [Survey]!
     
@@ -214,6 +223,13 @@ extension HomeViewController : ORKTaskViewControllerDelegate {
         taskViewController.dismiss(animated: true, completion: nil)
         
         if reason == .completed {
+            //create results transform object
+            let taskResult = taskViewController.result
+            
+            let surveyRT = AppDelegate.getSurveyMapping()
+            
+            appDelegate!.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: surveyRT)
+            
             //REMOVE THIS SURVEY FROM THE SURVEY QUEUE
             markAsComplete(surveyName: curSurveyName)
         }

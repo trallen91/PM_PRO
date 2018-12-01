@@ -24,6 +24,7 @@
 		F8A0786F21A895AB00469C89 /* SideEffectSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0786E21A895AB00469C89 /* SideEffectSurvey.swift */; };
 		F8A0787121A895D300469C89 /* StandardizedSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787021A895D300469C89 /* StandardizedSurvey.swift */; };
 		F8A0787321B1AB4400469C89 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787221B1AB4400469C89 /* LocationManager.swift */; };
+		F8A0787521B21E2100469C89 /* survey_transformer.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0787421B21E2100469C89 /* survey_transformer.json */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
 		F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* IntroViewController.swift */; };
 		F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */; };
@@ -99,6 +100,7 @@
 		F8A0786E21A895AB00469C89 /* SideEffectSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectSurvey.swift; sourceTree = "<group>"; };
 		F8A0787021A895D300469C89 /* StandardizedSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardizedSurvey.swift; sourceTree = "<group>"; };
 		F8A0787221B1AB4400469C89 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F8A0787421B21E2100469C89 /* survey_transformer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = survey_transformer.json; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C758B2217121CC00E590AD /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				F8A0786E21A895AB00469C89 /* SideEffectSurvey.swift */,
 				F8A0787021A895D300469C89 /* StandardizedSurvey.swift */,
 				F8A0787221B1AB4400469C89 /* LocationManager.swift */,
+				F8A0787421B21E2100469C89 /* survey_transformer.json */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				F8A07861219CE39A00469C89 /* notifcation_setter.json in Resources */,
 				F8A07856219B9A9F00469C89 /* LS2Client.plist in Resources */,
 				F8C758B8217121CD00E590AD /* Assets.xcassets in Resources */,
+				F8A0787521B21E2100469C89 /* survey_transformer.json in Resources */,
 				F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */,
 				F8A0785C219CB05500469C89 /* login.json in Resources */,
 			);

@@ -44,7 +44,7 @@ public var SideEffectSurveyTask: ORKOrderedTask {
     for (index, statement) in seStatements.enumerated() {
         
         print("Item \(index + 1): \(statement)")
-        let statementIdentifier = "seStatement \(index + 1)"
+        let statementIdentifier = "survey.seStatement \(index + 1)"
         
         
         let seStep = ORKQuestionStep(identifier:statementIdentifier)

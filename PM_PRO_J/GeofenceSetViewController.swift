@@ -22,26 +22,8 @@ class GeofenceSetViewController: UIViewController, CLLocationManagerDelegate {
         
         self.locMgr = LocationManager()
         
-//        locationManager.delegate = self
-//
-//        locationManager.requestAlwaysAuthorization()
-//
-//        locationManager.startUpdatingLocation()
-////
-//        locationManager.distanceFilter = 100
-//
-//        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 43.61871, longitude: -116.214607), radius: 150, identifier: "Boise")
-//
-//        locationManager.startMonitoring(for: geoFenceRegion)
     }
     
-//    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-//        print("You are entering \(region.identifier)")
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion){
-//        print("You are leaving \(region.identifier)")
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,8 +45,6 @@ extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
         taskViewController.dismiss(animated: true, completion: nil)
 
         let taskResult = taskViewController.result.results
-        //let myStore = Store()
-        //let myLocMgr = ANCLocationManager(store: myStore)
         for stepResults in taskResult! as! [ORKStepResult]
         {
             print("---")
@@ -73,44 +53,35 @@ extension GeofenceSetViewController : ORKTaskViewControllerDelegate {
                 print(result.identifier)
                 let locAnswerResult = result as! ORKLocationQuestionResult
                 let loc = locAnswerResult.locationAnswer!
-//                print(loc.coordinate)
                 
                 if result.identifier == "homeAddress"
                 {
                     print("Home Address: ")
                     print(loc.coordinate)
-                    //myLocMgr.home = loc.coordinate
                     
                     self.locMgr.home = loc.coordinate
-//                    let homeGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Home")
-//                    locationManager.startMonitoring(for: homeGeoFenceRegion)
                     
                 }
                 if result.identifier == "workAddress"
                 {
                     print("Work Address: ")
                     print(loc.coordinate)
-                    //myLocMgr.work = loc.coordinate
-//                    let workGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Work")
-//                    locationManager.startMonitoring(for: workGeoFenceRegion)
+                    self.locMgr.work = loc.coordinate
                     
                 }
                 if result.identifier == "hospitalAddress"
                 {
                     print("Hospital Address: ")
                     print(loc.coordinate)
-                    //myLocMgr.work = loc.coordinate
-//                    let hospitalGeoFenceRegion:CLCircularRegion = CLCircularRegion(center: loc.coordinate, radius: 150, identifier: "Hospital")
-//                    locationManager.startMonitoring(for: hospitalGeoFenceRegion)
+                    self.locMgr.hospital = loc.coordinate
+
                 }
             }
         }
         
         if reason == .completed {
-            //self.store.set(value: true as NSSecureCoding, key: "hasSetGeofence")
-            //self.performSegue(withIdentifier: "firstSetTimeSegue", sender: nil)
-            
-            print("Should now segue -- uncomment both lines above to restore functionality")
+            self.store.set(value: true as NSSecureCoding, key: "hasSetGeofence")
+            self.performSegue(withIdentifier: "firstSetTimeSegue", sender: nil)
         }
         
     }
