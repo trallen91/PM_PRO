@@ -63,7 +63,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //retrieve the surveys from the stored surveys
         surveyQueue = updateSurveyQueue()
-        outstandingSurveys = getOutstandingSurveys(surveyQ: surveyQueue) // This doesn't refresh Table
+        outstandingSurveys = getOutstandingSurveys(surveyQ: surveyQueue)
+        tableView.reloadData()
     }
     
     func updateSurveyQueue() -> [Survey] {
