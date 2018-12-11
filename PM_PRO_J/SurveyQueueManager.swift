@@ -32,8 +32,6 @@ class SurveyQueueManager {
     }
     
     func initializeSurveyQueue() {
-        print("Initializing Survey Queue...")
-        
         var initialSurveyQueue : [Survey] = []
         
         let initialStandardized = StandardizedSurvey()
@@ -43,6 +41,7 @@ class SurveyQueueManager {
         let initialWB = WellbeingSurvey()
         print(initialWB.Name)
         initialSurveyQueue.append(initialWB)
+        
         
         let initialSE = SideEffectSurvey()
         print(initialSE.Name)
@@ -77,16 +76,17 @@ class SurveyQueueManager {
             let surveyType = survey.Name
             if (currentDate.laterDate(survey.ExpirationDate as Date) == currentDate as Date) {//means survey is expired...this shouldn't be the only way to add new surveys to queue, but can revisit
                 var newSurvey : Survey!
-                let newSurveyOpenDate = Calendar.current.date(byAdding: .day, value: survey.DaysBetweenSurveys as! Int, to: survey.OpenDate! as Date) as! NSDate
+                
+                //let newSurveyOpenDate = Calendar.current.date(byAdding: .day, value: survey.DaysBetweenSurveys as! Int, to: survey.OpenDate! as Date) as! NSDate
                 
                 if (surveyType == "Standardized Survey") { //SHOULD THIS BE TYPE CHECKING?
-                    newSurvey = StandardizedSurvey(OpenDate: newSurveyOpenDate)
+                    newSurvey = StandardizedSurvey()
                 }
                 else if (surveyType == "Well-Being Survey") {
-                    newSurvey = WellbeingSurvey(OpenDate: newSurveyOpenDate)
+                    newSurvey = WellbeingSurvey()
                 }
                 else if (surveyType == "Side-Effects Survey") {
-                    newSurvey = SideEffectSurvey(OpenDate: newSurveyOpenDate)
+                    newSurvey = SideEffectSurvey()
                 }
                 
                 updatedSurveyQ.append(newSurvey)

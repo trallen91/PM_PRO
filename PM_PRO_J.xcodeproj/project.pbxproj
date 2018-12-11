@@ -26,7 +26,8 @@
 		F8A0787321B1AB4400469C89 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787221B1AB4400469C89 /* LocationManager.swift */; };
 		F8A0787521B21E2100469C89 /* survey_transformer.json in Resources */ = {isa = PBXBuildFile; fileRef = F8A0787421B21E2100469C89 /* survey_transformer.json */; };
 		F8A0787721BF117C00469C89 /* SurveyQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787621BF117C00469C89 /* SurveyQueueManager.swift */; };
-		F8A0787921BF24AD00469C89 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787821BF24AD00469C89 /* NotificationManager.swift */; };
+		F8A0787921BF24AD00469C89 /* SurveyTimesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787821BF24AD00469C89 /* SurveyTimesManager.swift */; };
+		F8A0787B21BF39CE00469C89 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787A21BF39CE00469C89 /* NotificationsManager.swift */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
 		F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* IntroViewController.swift */; };
 		F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */; };
@@ -104,7 +105,8 @@
 		F8A0787221B1AB4400469C89 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F8A0787421B21E2100469C89 /* survey_transformer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = survey_transformer.json; sourceTree = "<group>"; };
 		F8A0787621BF117C00469C89 /* SurveyQueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQueueManager.swift; sourceTree = "<group>"; };
-		F8A0787821BF24AD00469C89 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F8A0787821BF24AD00469C89 /* SurveyTimesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTimesManager.swift; sourceTree = "<group>"; };
+		F8A0787A21BF39CE00469C89 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C758B2217121CC00E590AD /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -265,7 +267,8 @@
 				F8A0787221B1AB4400469C89 /* LocationManager.swift */,
 				F8A0787421B21E2100469C89 /* survey_transformer.json */,
 				F8A0787621BF117C00469C89 /* SurveyQueueManager.swift */,
-				F8A0787821BF24AD00469C89 /* NotificationManager.swift */,
+				F8A0787821BF24AD00469C89 /* SurveyTimesManager.swift */,
+				F8A0787A21BF39CE00469C89 /* NotificationsManager.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				F8EEB25F217BC4EF00612D84 /* LoginViewController.swift in Sources */,
 				F8EEB26B217E708000612D84 /* SettingsViewController.swift in Sources */,
 				F8EEB2732184AFAB00612D84 /* WellBeingSurveyTask.swift in Sources */,
+				F8A0787B21BF39CE00469C89 /* NotificationsManager.swift in Sources */,
 				F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */,
 				F8EEB24E217188BB00612D84 /* ConsentDocument.swift in Sources */,
 				F8EEB26D217E809900612D84 /* EligibilityViewController.swift in Sources */,
@@ -579,7 +583,7 @@
 				F8A0787721BF117C00469C89 /* SurveyQueueManager.swift in Sources */,
 				F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */,
 				F8EEB265217CF01900612D84 /* SetSurveyTimeTask.swift in Sources */,
-				F8A0787921BF24AD00469C89 /* NotificationManager.swift in Sources */,
+				F8A0787921BF24AD00469C89 /* SurveyTimesManager.swift in Sources */,
 				F8A0787121A895D300469C89 /* StandardizedSurvey.swift in Sources */,
 				F8EEB26F217E838B00612D84 /* EligibilityTask.swift in Sources */,
 				F8A0786D21A8957300469C89 /* WellbeingSurvey.swift in Sources */,

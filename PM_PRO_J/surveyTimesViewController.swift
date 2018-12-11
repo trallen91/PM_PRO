@@ -9,12 +9,11 @@
 import Foundation
 import ResearchKit
 import UIKit
-import UserNotifications
 
 class SurveyTimesViewController: UIViewController {
     var store: RSStore!
     var sqMgr: SurveyQueueManager!
-    var surveyNotificationMgr: SurveyNotificationManager!
+    var surveyTimeMgr: SurveyTimesManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +21,7 @@ class SurveyTimesViewController: UIViewController {
         self.title = "Set Survey Times"
         self.store = RSStore()
         self.sqMgr = SurveyQueueManager()
-        self.surveyNotificationMgr = SurveyNotificationManager()
+        self.surveyTimeMgr = SurveyTimesManager()
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,7 +68,7 @@ extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
                         
                         wellBeingSurveyDate.weekday = wbDay.intValue
                         
-                        self.surveyNotificationMgr.wbNotification = wellBeingSurveyDate as NSDateComponents
+                        self.surveyTimeMgr.wellBeingTime = wellBeingSurveyDate as NSDateComponents
                     }
                     if (result.identifier == "sideEffectsSurveyTime") {
                         let sideFxTimeSurveyResult = result as! ORKTimeOfDayQuestionResult
@@ -78,7 +77,7 @@ extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
                         sideEffectSurveyDate.hour = sideFxTime.hour
                         sideEffectSurveyDate.minute = sideFxTime.minute
                         
-                        self.surveyNotificationMgr.seNotification = sideEffectSurveyDate as NSDateComponents
+                        self.surveyTimeMgr.sideEffectTime = sideEffectSurveyDate as NSDateComponents
                     }
                     
                     print(result)
@@ -89,8 +88,7 @@ extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
             self.sqMgr.initializeSurveyQueue() // create an initial survey that they will see the first time they hit the home screen
 
             
-            //UNCOMMENT THE LINE BELOW WHEN DONE TESTING!!!!!!!!!!!!!!!!!!!!!!!
-            //self.store.set(value: true as NSSecureCoding, key: "hasSetSurvey")
+            self.store.set(value: true as NSSecureCoding, key: "hasSetSurvey")
             
             
             DispatchQueue.main.async {

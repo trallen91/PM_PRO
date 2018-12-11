@@ -63,6 +63,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //retrieve the surveys from the stored surveys
+        self.sqMgr.updateSurveyQueue() //make sure it's up to date
         outstandingSurveys = self.sqMgr.getOutstandingSurveys()
         tableView.reloadData()
     }

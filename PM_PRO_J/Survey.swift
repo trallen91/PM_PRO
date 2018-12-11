@@ -9,7 +9,8 @@
 import Foundation
 
 class Survey : NSObject, NSCoding {
-
+    
+    
     var SurveyTypesPerQueue : NSNumber = 1 //How many of each survey we allow per queue, treat as all same for now
     
     var Name: NSString!
@@ -26,7 +27,7 @@ class Survey : NSObject, NSCoding {
         self.Name = aDecoder.decodeObject(forKey: "Name") as! NSString
         self.OpenDate = aDecoder.decodeObject(forKey: "OpenDate") as! NSDate
         self.IsComplete = aDecoder.decodeObject(forKey: "IsComplete") as! Bool
-        self.DaysBetweenSurveys = aDecoder.decodeObject(forKey: "DaysBetweenSurveys") as! NSNumber
+        //self.DaysBetweenSurveys = aDecoder.decodeObject(forKey: "DaysBetweenSurveys") as! NSNumber
         self.ExpirationDate = aDecoder.decodeObject(forKey: "ExpirationDate") as! NSDate
     }
     
@@ -34,11 +35,13 @@ class Survey : NSObject, NSCoding {
         aCoder.encode(Name, forKey: "Name")
         aCoder.encode(OpenDate, forKey: "OpenDate")
         aCoder.encode(IsComplete, forKey: "IsComplete")
-        aCoder.encode(DaysBetweenSurveys, forKey: "DaysBetweenSurveys")
+        //aCoder.encode(DaysBetweenSurveys, forKey: "DaysBetweenSurveys")
         aCoder.encode(ExpirationDate, forKey: "ExpirationDate")
     }
     
     init(OpenDate : NSDate = NSDate()) {
+        
+        
         self.IsComplete = false
         self.OpenDate = OpenDate
         
