@@ -16,7 +16,7 @@ import ReSwift
 
 class HomeViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
+    var sqMgr: SurveyQueueManager!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,6 +39,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.store = RSStore()
+        self.sqMgr = SurveyQueueManager()
         
         self.title = "Home"
         self.navigationItem.hidesBackButton = true
@@ -62,60 +63,10 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //retrieve the surveys from the stored surveys
-        surveyQueue = updateSurveyQueue()
-        outstandingSurveys = getOutstandingSurveys(surveyQ: surveyQueue)
+        outstandingSurveys = self.sqMgr.getOutstandingSurveys()
         tableView.reloadData()
     }
     
-    func updateSurveyQueue() -> [Survey] {
-        surveyQueue =  self.store.valueInState(forKey: "surveyQueue") as! [Survey]
-        var updatedSurveyQ : [Survey] = []
-        
-        // GET CURRENT DATETIME
-        let currentDate = NSDate()
-        
-        for survey in surveyQueue {
-            let surveyType = survey.Name
-            if (currentDate.laterDate(survey.ExpirationDate as Date) == currentDate as Date) {//means survey is expired...this shouldn't be the only way to add new surveys to queue, but can revisit
-                var newSurvey : Survey!
-                let newSurveyOpenDate = Calendar.current.date(byAdding: .day, value: survey.DaysBetweenSurveys as! Int, to: survey.OpenDate! as Date) as! NSDate
-                
-                if (surveyType == "Standardized Survey") { //SHOULD THIS BE TYPE CHECKING?
-                    newSurvey = StandardizedSurvey(OpenDate: newSurveyOpenDate)
-                }
-                else if (surveyType == "Well-Being Survey") {
-                    newSurvey = WellbeingSurvey(OpenDate: newSurveyOpenDate)
-                }
-                else if (surveyType == "Side-Effects Survey") {
-                    newSurvey = SideEffectSurvey(OpenDate: newSurveyOpenDate)
-                }
-
-                updatedSurveyQ.append(newSurvey)
-            }
-            else {
-                updatedSurveyQ.append(survey)
-            }
-        }
-     
-        //sort updatedSurveyQ by OpenDate
-        self.store.setValueInState(value: updatedSurveyQ as! NSSecureCoding, forKey: "surveyQueue")
-        return updatedSurveyQ
-     
-     }
-    
-    func getOutstandingSurveys(surveyQ : [Survey]) -> [Survey] {
-
-        //OUTSTANDING SURVEYS
-        var outstandingSurveys: [Survey] = []
-        
-        for survey in surveyQ {
-            if !(survey.IsComplete) {
-                outstandingSurveys.append(survey)
-            }
-        }
-        
-        return outstandingSurveys
-    }
     
     func markAsComplete(surveyName : NSString) {
         var curQ = self.store.valueInState(forKey: "surveyQueue") as! [Survey]

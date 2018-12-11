@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     //    var CSVBackend: RSRPCSVBackEnd!
     var ls2Manager: LS2Manager!
     var ls2Backend: LS2BackEnd!
+    var sqMgr: SurveyQueueManager!
     
     //    var store: RSCredentialsStore!
     
@@ -147,35 +148,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
         }
         
-        self.initializeSurveyQueue()
         // Navigate to correct view controller
         self.showViewController(animated: false)
         
+        self.sqMgr = SurveyQueueManager()
         
+        self.sqMgr.updateSurveyQueue() //make sure it's up to date
         
         return true
     }
     
-    func initializeSurveyQueue() { // MOVE THIS INTO SURVEYTIMESETTING VIEWCONTROLLER WHEN DONE TESTING
-        print("Initializing Survey Queue...")
-        let initialSurveyQueue = SurveyQueue()
-        initialSurveyQueue.surveys = []
-        
-        let initialStandardized = StandardizedSurvey()
-        print(initialStandardized.Name)
-        initialSurveyQueue.surveys.append(initialStandardized)
-        
-        let initialWB = WellbeingSurvey()
-        print(initialWB.Name)
-        initialSurveyQueue.surveys.append(initialWB)
-        
-        let initialSE = SideEffectSurvey()
-        print(initialSE.Name)
-        initialSurveyQueue.surveys.append(initialSE)
-        
-        
-        self.store.setValueInState(value: initialSurveyQueue.surveys as! NSSecureCoding, forKey: "surveyQueue")
-    }
+
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
