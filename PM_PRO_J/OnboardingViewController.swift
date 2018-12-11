@@ -41,6 +41,7 @@ class OnboardingViewController: UIViewController {
             self.performSegue(withIdentifier: "doEligibilitySegue", sender: nil)
         }
         else if (!isConsented) {
+            //self.prepareForSegue(segueIdentifier: "doConsentSegue", sender: nil: , sender: )
             self.performSegue(withIdentifier: "doConsentSegue", sender: nil)
         }
         else if (!hasSetGeofence) {
@@ -71,15 +72,20 @@ class OnboardingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //could use this below to add conditional logic to prevent a back button if you paused and came back
-//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "Identifier1" {
-//            let firstVC = segue.destinationViewController as? FirstViewController
-//
-//        } else if segue.identifier == "Identifier2" {
-//            let secondVC = segue.destinationViewController as? SecondViewController
-//
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // if you've navigated directly from home screen, and not from the previous onboarding task, you shouldn't be able to go back
+        if (segue.identifier == "doConsentSegue" ) {
+            let consentVC = segue.destination as? ConsentViewController
+            consentVC?.navigationItem.hidesBackButton = true
+        }
+        else if (segue.identifier == "doGeofenceSegue") {
+            let geofenceVC = segue.destination as? GeofenceSetViewController
+            geofenceVC?.navigationItem.hidesBackButton = true
+        }
+        else if (segue.identifier == "doSurveyTimeSetSegue") {
+            let surveyTimeVC = segue.destination as? SurveyTimesViewController
+            surveyTimeVC?.navigationItem.hidesBackButton = true
+        }
+    }
     
 }

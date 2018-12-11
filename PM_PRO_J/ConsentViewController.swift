@@ -33,6 +33,7 @@ class ConsentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func consentTapped(_ sender: UIButton) {
         let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
         taskViewController.delegate = self as ORKTaskViewControllerDelegate
