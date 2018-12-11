@@ -37,6 +37,7 @@ class SettingsViewController: UIViewController {
         let taskViewController = ORKTaskViewController(task: SetSurveyTimeTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "ChangeSurveySegue", sender: nil)
     }
     
     func signOut() {

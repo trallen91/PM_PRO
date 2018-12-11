@@ -28,6 +28,8 @@
 		F8A0787721BF117C00469C89 /* SurveyQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787621BF117C00469C89 /* SurveyQueueManager.swift */; };
 		F8A0787921BF24AD00469C89 /* SurveyTimesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787821BF24AD00469C89 /* SurveyTimesManager.swift */; };
 		F8A0787B21BF39CE00469C89 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787A21BF39CE00469C89 /* NotificationsManager.swift */; };
+		F8A0787D21C00CAA00469C89 /* SurveyChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787C21C00CAA00469C89 /* SurveyChangeViewController.swift */; };
+		F8A0787F21C00F3100469C89 /* SurveyTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0787E21C00F3100469C89 /* SurveyTimeCell.swift */; };
 		F8C758B1217121CC00E590AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B0217121CC00E590AD /* AppDelegate.swift */; };
 		F8C758B3217121CC00E590AD /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C758B2217121CC00E590AD /* IntroViewController.swift */; };
 		F8C758B6217121CC00E590AD /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C758B4217121CC00E590AD /* OnboardingSB.storyboard */; };
@@ -107,6 +109,8 @@
 		F8A0787621BF117C00469C89 /* SurveyQueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQueueManager.swift; sourceTree = "<group>"; };
 		F8A0787821BF24AD00469C89 /* SurveyTimesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTimesManager.swift; sourceTree = "<group>"; };
 		F8A0787A21BF39CE00469C89 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		F8A0787C21C00CAA00469C89 /* SurveyChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyChangeViewController.swift; sourceTree = "<group>"; };
+		F8A0787E21C00F3100469C89 /* SurveyTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTimeCell.swift; sourceTree = "<group>"; };
 		F8C758AD217121CC00E590AD /* PM_PRO_J.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM_PRO_J.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C758B0217121CC00E590AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C758B2217121CC00E590AD /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 				F8A0787621BF117C00469C89 /* SurveyQueueManager.swift */,
 				F8A0787821BF24AD00469C89 /* SurveyTimesManager.swift */,
 				F8A0787A21BF39CE00469C89 /* NotificationsManager.swift */,
+				F8A0787C21C00CAA00469C89 /* SurveyChangeViewController.swift */,
+				F8A0787E21C00F3100469C89 /* SurveyTimeCell.swift */,
 			);
 			path = PM_PRO_J;
 			sourceTree = "<group>";
@@ -553,11 +559,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8EEB257217800A500612D84 /* InclusionExclusionViewController.swift in Sources */,
+				F8A0787F21C00F3100469C89 /* SurveyTimeCell.swift in Sources */,
 				F8EEB2592178123300612D84 /* EligibilityCell.swift in Sources */,
 				F8EEB2492171303400612D84 /* ANCLocationManager_NOTUSED.swift in Sources */,
 				F8EEB267217E0C9600612D84 /* HomeViewController.swift in Sources */,
 				F8EEB25F217BC4EF00612D84 /* LoginViewController.swift in Sources */,
 				F8EEB26B217E708000612D84 /* SettingsViewController.swift in Sources */,
+				F8A0787D21C00CAA00469C89 /* SurveyChangeViewController.swift in Sources */,
 				F8EEB2732184AFAB00612D84 /* WellBeingSurveyTask.swift in Sources */,
 				F8A0787B21BF39CE00469C89 /* NotificationsManager.swift in Sources */,
 				F8EEB2512171892800612D84 /* GeofenceLocationsTask.swift in Sources */,
