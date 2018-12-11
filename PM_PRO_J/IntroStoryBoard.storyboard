@@ -91,25 +91,28 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEc-DY-QyB">
-                                        <rect key="frame" x="0.0" y="62" width="371" height="768"/>
+                                        <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">This is the mobile app for the "Research for Precision Medicine – Exploring Retrospective and Prospective 
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" adjustable="YES"/>
+                                        </accessibility>
+                                        <mutableString key="text">This is the mobile app for the "Research for Precision Medicine – Exploring Retrospective and Prospective 
 Patient-Generated Data in Precision Medicine Sub Study."
 
 The purpose of this study is to understand whether using a mobile health application to collect patient-centric data will help patients and physicians to check the accuracy of patients’ reporting, to better evaluate performance status, and to track changes in treatment and care. We aim to explore new methods for monitoring and measuring patients’ performance status, changes in clinical status and treatment across providers, and outcomes. These new methods include both prospective collection of Patient Reported Outcomes (PROs), deployed via mobile devices, and retrospective data collection deployed via patient-shared digital histories.
 
 The primary objective(s) of this study include:
-Performance status measures: Exploring whether and how to quantify a patient’s performance status observable in individual location and search/browser data; and to integrate those measures into prospective tools for patient reported outcomes and patient generated data. Correlation will be performed with physician reported patient performance status (ECOG/Karnofsky score) through clinical encounters or EMRs.   
-Patient reported care updates: Exploring effective methods for engaging patients in sharing updates in their clinical care, including any changes in their cancer treatment protocols, as well as treatment of other related or unrelated clinical conditions.
+- Performance status measures: Exploring whether and how to quantify a patient’s performance status observable in individual location and search/browser data; and to integrate those measures into prospective tools for patient reported outcomes and patient generated data. Correlation will be performed with physician reported patient performance status (ECOG/Karnofsky score) through clinical encounters or EMRs.   
+- Patient reported care updates: Exploring effective methods for engaging patients in sharing updates in their clinical care, including any changes in their cancer treatment protocols, as well as treatment of other related or unrelated clinical conditions.
 
 The secondary objective(s) of this study include:
-Evaluating the willingness and ability of patients to share retrospective data with researchers through these methods.
+- Evaluating the willingness and ability of patients to share retrospective data with researchers through these methods.
 
 The exploratory objective(s) of this study include:
-Correlating genomic data with the comprehensive clinical data collected (e.g., treatment responses, toxicity, outcomes)
+- Correlating genomic data with the comprehensive clinical data collected (e.g., treatment responses, toxicity, outcomes)
 
-</string>
+</mutableString>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -123,7 +126,7 @@ Correlating genomic data with the comprehensive clinical data collected (e.g., t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTT-tu-KWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058" y="-115"/>
+            <point key="canvasLocation" x="2056.8000000000002" y="-115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PP0-ih-X71">

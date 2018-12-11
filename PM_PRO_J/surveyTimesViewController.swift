@@ -70,6 +70,23 @@ extension SurveyTimesViewController : ORKTaskViewControllerDelegate {
                         
                         self.surveyTimeMgr.wellBeingTime = wellBeingSurveyDate as NSDateComponents
                     }
+                    if (result.identifier == "ssTime" ) {
+                        let ssTimeSurveyResult = result as! ORKTimeOfDayQuestionResult
+                        let ssTime = ssTimeSurveyResult.answer as! DateComponents
+                        
+                        standardizedSurveyDate.hour = ssTime.hour
+                        standardizedSurveyDate.minute = ssTime.minute
+                    }
+                    if (result.identifier == "ssWeekday") {
+                        let ssDaySurveyResult = result as! ORKChoiceQuestionResult
+                        let ssDayArr = ssDaySurveyResult.answer as! NSArray
+                        
+                        let ssDay = ssDayArr[0] as! NSNumber
+                        
+                        standardizedSurveyDate.weekday = ssDay.intValue
+                        
+                        self.surveyTimeMgr.standardizedTime = standardizedSurveyDate as NSDateComponents
+                    }
                     if (result.identifier == "sideEffectsSurveyTime") {
                         let sideFxTimeSurveyResult = result as! ORKTimeOfDayQuestionResult
                         let sideFxTime = sideFxTimeSurveyResult.answer as! DateComponents

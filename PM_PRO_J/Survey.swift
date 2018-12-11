@@ -40,8 +40,6 @@ class Survey : NSObject, NSCoding {
     }
     
     init(OpenDate : NSDate = NSDate()) {
-        
-        
         self.IsComplete = false
         self.OpenDate = OpenDate
         
