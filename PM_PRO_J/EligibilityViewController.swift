@@ -21,6 +21,7 @@ class EligibilityViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Eligibility"
         self.store = RSStore()
+        self.navigationItem.hidesBackButton = true
 //        let isEligible = self.store.valueInState(forKey: "isEligible") as! Bool
 //
 //        if(isEligible){

@@ -71,4 +71,15 @@ class OnboardingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //could use this below to add conditional logic to prevent a back button if you paused and came back
+//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "Identifier1" {
+//            let firstVC = segue.destinationViewController as? FirstViewController
+//
+//        } else if segue.identifier == "Identifier2" {
+//            let secondVC = segue.destinationViewController as? SecondViewController
+//
+//        }
+//    }
+    
 }
